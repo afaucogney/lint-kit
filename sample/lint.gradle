@@ -1,0 +1,75 @@
+
+// Settings
+android {
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+        htmlOutput file("${project.buildDir}/reports/lint/lint-report.html")
+        xmlOutput file("${project.buildDir}/reports/lint/lint-report.xml")
+
+        enable 'WrongThreadInterprocedural',
+                'UnusedIds',
+                'UnsupportedChromeOsHardware',
+                'UnpackedNativeCode',
+                'UnknownNullness',
+                'TypographyQuotes',
+                'SyntheticAccessor',
+                'StopShip',
+                'SelectableText',
+                'RequiredSize',
+                'Registered',
+                'PermissionImpliesUnsupportedChromeOsHardware',
+                'NoHardKeywords',
+                'NewerVersionAvailable',
+                'NegativeMargin',
+                'MissingRegistered',
+                'MinSdkTooLow',
+                'MangledCRLF',
+                'LogConditional',
+                'LambdaLast',
+                'KotlinPropertyAccess',
+                'IconExpectedSize',
+                'FieldGetter',
+                'EasterEgg',
+                'ConvertToWebp',
+                'BackButton',
+                'AppLinksAutoVerifyWarning',
+                'AppLinksAutoVerifyError',
+                'CanvasSize',
+                'IntentReset',
+                'InvalidNavigation',
+                'InvalidWakeLockTag',
+                'MissingDefaultResource',
+                'RequiresFeature',
+                'Slices',
+                'TranslucentOrientation',
+                'ValidActionsXml',
+                'Untranslatable',
+                'DeletedProvider',
+                'DeprecatedProvider',
+                'ProxyPassword',
+                'RiskyLibrary',
+                'ExpiredTargetSdkVersion',
+                'ExpiringTargetSdkVersion',
+                'OutdatedLibrary',
+                'SyntheticAccessor',
+                'Autofill',
+                'ConstantLocale',
+                'KotlinPropertyAccess',
+                'LambdaLast',
+                'NoHardKeywords',
+                'UnknownNullness',
+                'WrongViewIdName'
+        disable 'TrustAllX509TrustManager',
+                'ObsoleteLintCustomCheck',
+                'SyntheticAccessor', // many use case in Kotlin
+                'Overdraw',
+                'MissingRegistered', // Lib are not part of sources sets for Lint
+                'PluralsCandidate', // Generation is done from POEditor, case to case exception is hard
+                'UnusedIds'
+        warningsAsErrors true
+        lintConfig file("${rootProject.projectDir}/config/lint/lint-config.xml")
+    }
+}

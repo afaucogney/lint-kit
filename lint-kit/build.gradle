@@ -1,32 +1,22 @@
 plugins {
-    id 'java-library'
-    id 'kotlin'
-    id "com.github.dcendents.android-maven"
+    id 'com.android.library'
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+android {
+    compileSdkVersion 30
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "0.1.0"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
-//
-//dependencies {
-//    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-//}
 
-
-ext {
-    // Version has to be current lint version + 23 (find the lint version in xml report)
-    lintVersion = "27.0.1"
-}
-
+/** Package the given lint checks library into this AAR  */
 dependencies {
-    compileOnly "com.android.tools.lint:lint-api:$lintVersion"
-    compileOnly "com.android.tools.lint:lint-checks:$lintVersion"
-    // Test
-    compileOnly "com.android.tools.lint:lint:$lintVersion"
-    compileOnly "com.android.tools.lint:lint-tests:$lintVersion"
-    compileOnly "com.android.tools:testutils:$lintVersion"
+    lintChecks project(':lint-kit-checks')
 }
-
-sourceCompatibility = "1.8"
-targetCompatibility = "1.8"

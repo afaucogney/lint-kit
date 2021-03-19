@@ -1,0 +1,82 @@
+plugins {
+//    id 'java'
+    id 'java-library'
+    id 'kotlin'
+//    id "com.github.dcendents.android-maven"
+//    id "maven"
+    id 'com.android.lint'
+}
+
+group = 'com.github.afaucogney'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+//
+//dependencies {
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+//}
+
+repositories {
+    mavenCentral()
+    google()
+    gradlePluginPortal()
+}
+
+ext {
+    // Version has to be current lint version + 23 (find the lint version in xml report)
+    lintVersion = "27.1.2"
+}
+
+dependencies {
+    compileOnly "com.android.tools.lint:lint-api:$lintVersion"
+    compileOnly "com.android.tools.lint:lint-checks:$lintVersion"
+    // Test
+    compileOnly "com.android.tools.lint:lint:$lintVersion"
+//    compileOnly "com.android.tools.lint:lint-tests:$lintVersion"
+//    compileOnly "com.android.tools:testutils:$lintVersion"
+
+    compileOnly "junit:junit:4.13.2"
+    compileOnly "com.android.tools.lint:lint:$lintVersion"
+    compileOnly "com.android.tools.lint:lint-tests:$lintVersion"
+}
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
+//
+//
+//task sourcesJar(type: Jar, dependsOn: classes) {
+//    classifier = 'sources'
+//    from sourceSets.main.allSource
+//}
+//
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+//}
+//
+//artifacts {
+//    archives sourcesJar
+//    archives javadocJar
+//}
+//
+//// To specify a license in the pom:
+//install {
+//    repositories.mavenInstaller {
+//        pom.project {
+//            licenses {
+//                license {
+//                    name 'The Apache Software License, Version 2.0'
+//                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//                    distribution 'repo'
+//                }
+//            }
+//        }
+//    }
+//}
+////
+////wrapper {
+////    gradleVersion = "6.1.1"
+////    distributionType = Wrapper.DistributionType.ALL
+////}
