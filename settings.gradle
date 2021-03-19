@@ -1,0 +1,2 @@
+rootProject.name = "Lint Kit"
+include ':app'
