@@ -8,6 +8,7 @@ import com.android.tools.lint.detector.api.Issue
 import com.android.tools.lint.detector.api.JavaContext
 import com.android.tools.lint.detector.api.Scope
 import com.android.tools.lint.detector.api.Severity
+import com.google.common.annotations.Beta
 import org.jetbrains.uast.UFile
 import java.util.*
 
@@ -18,10 +19,11 @@ class ImportAutodisposeDetector : Detector(), Detector.UastScanner {
     ///////////////////////////////////////////////////////////////////////////
 
     companion object {
-        val ISSUE_AUTODISPOSE_USAGE = Issue.create("AutodisposeIsDeprecated",
+        val ISSUE_AUTODISPOSE_USAGE = Issue.create(
+            "AutodisposeIsDeprecated",
             "Autodispose must not be used anymore.",
             "Because bindAndSub rx helpers is sufficient and simpler" +
-                "method",
+                    "method",
             Category.CORRECTNESS,
             9,
             Severity.ERROR,
