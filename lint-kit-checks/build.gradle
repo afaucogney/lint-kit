@@ -3,7 +3,7 @@ plugins {
     id 'java-library'
     id 'kotlin'
 //    id "com.github.dcendents.android-maven"
-//    id "maven"
+    id "maven"
     id 'com.android.lint'
 }
 
@@ -24,10 +24,10 @@ repositories {
     gradlePluginPortal()
 }
 
-ext {
-    // Version has to be current lint version + 23 (find the lint version in xml report)
-    lintVersion = "27.1.2"
-}
+//ext {
+//    // Version has to be current lint version + 23 (find the lint version in xml report)
+//    lintVersion = "27.1.2"
+//}
 
 dependencies {
     compileOnly "com.android.tools.lint:lint-api:$lintVersion"
@@ -44,39 +44,39 @@ dependencies {
 
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
+
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+// To specify a license in the pom:
+install {
+    repositories.mavenInstaller {
+        pom.project {
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
+        }
+    }
+}
 //
-//
-//task sourcesJar(type: Jar, dependsOn: classes) {
-//    classifier = 'sources'
-//    from sourceSets.main.allSource
+//wrapper {
+//    gradleVersion = "6.1.1"
+//    distributionType = Wrapper.DistributionType.ALL
 //}
-//
-//task javadocJar(type: Jar, dependsOn: javadoc) {
-//    classifier = 'javadoc'
-//    from javadoc.destinationDir
-//}
-//
-//artifacts {
-//    archives sourcesJar
-//    archives javadocJar
-//}
-//
-//// To specify a license in the pom:
-//install {
-//    repositories.mavenInstaller {
-//        pom.project {
-//            licenses {
-//                license {
-//                    name 'The Apache Software License, Version 2.0'
-//                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-//                    distribution 'repo'
-//                }
-//            }
-//        }
-//    }
-//}
-////
-////wrapper {
-////    gradleVersion = "6.1.1"
-////    distributionType = Wrapper.DistributionType.ALL
-////}
