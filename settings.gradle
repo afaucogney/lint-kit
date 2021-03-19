@@ -1,2 +1,3 @@
 rootProject.name = "Lint Kit"
-include ':app'
+include ':sample'
+include ':lint-kit'

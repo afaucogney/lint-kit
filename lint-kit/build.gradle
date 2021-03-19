@@ -1,0 +1,31 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+//
+//dependencies {
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+//}
+
+
+ext {
+    // Version has to be current lint version + 23 (find the lint version in xml report)
+    lintVersion = "27.0.1"
+}
+
+dependencies {
+    compileOnly "com.android.tools.lint:lint-api:$lintVersion"
+    compileOnly "com.android.tools.lint:lint-checks:$lintVersion"
+    // Test
+    compileOnly "com.android.tools.lint:lint:$lintVersion"
+    compileOnly "com.android.tools.lint:lint-tests:$lintVersion"
+    compileOnly "com.android.tools:testutils:$lintVersion"
+}
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
