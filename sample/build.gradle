@@ -46,9 +46,10 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.4'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.4'
 
-//    lintPublish 'com.github.afaucogney:Lint-Kit:-SNAPSHOT'
-//    implementation project(':lint-kit')
-    lintChecks project(':lint-kit-checks')
+//    implementation 'com.github.afaucogney:lint-kit:-SNAPSHOT'
+//    implementation 'com.github.afaucogney:lint-kit:-SNAPSHOT'
+    implementation project(':lint-kit')
+//    lintChecks project(':lint-kit-checks')
 }
 
 apply from: './lint.gradle'
