@@ -28,7 +28,7 @@ class InitUsageInConcreteViewModelDetectorTest {
                 .files(appBaseViewModelStub, kotlin("""
                 |package foo
                 |
-                |import com.edf.edfetmoi.presentation.common.viewmodel.BaseViewModel
+                |import fr.afaucogney.app.presentation.common.viewmodel.BaseViewModel
                 |
                 |class IMyFeatureContractViewModel(app: Application) : BaseViewModel(app) {
                 |
@@ -47,7 +47,7 @@ class InitUsageInConcreteViewModelDetectorTest {
                 .files(appBaseViewModelStub, kotlin("""
                 |package foo
                 |
-                |import com.edf.edfetmoi.presentation.common.viewmodel.BaseViewModel
+                |import fr.afaucogney.app.presentation.common.viewmodel.BaseViewModel
                 |
                 |class IMyFeatureContractViewModel(app: Application) : BaseViewModel(app) {
                 |
@@ -68,7 +68,7 @@ class InitUsageInConcreteViewModelDetectorTest {
                 .files(appBaseViewModelStub, kotlin("""
                 |package foo
                 |
-                |import com.edf.edfetmoi.presentation.common.viewmodel.BaseViewModel
+                |import fr.afaucogney.app.presentation.common.viewmodel.BaseViewModel
                 |
                 |class IMyFeatureContractViewModel(app: Application) : BaseViewModel(app) {
                 |
@@ -91,7 +91,7 @@ class InitUsageInConcreteViewModelDetectorTest {
                 .files(appBaseViewModelStub, kotlin("""
                 |package foo
                 |
-                |import com.edf.edfetmoi.presentation.common.viewmodel.BaseViewModel
+                |import fr.afaucogney.app.presentation.common.viewmodel.BaseViewModel
                 |
                 |class IMyFeatureContractViewModel(app: Application) : BaseViewModel(app) {
                 |
@@ -113,7 +113,7 @@ class InitUsageInConcreteViewModelDetectorTest {
                 .files(appBaseViewModelStub, kotlin("""
                 |package foo
                 |
-                |import com.edf.edfetmoi.presentation.common.viewmodel.BaseViewModel
+                |import fr.afaucogney.app.presentation.common.viewmodel.BaseViewModel
                 |
                 |class IMyFeatureContractVewModel(app: Application) : BaseVewModel(app) {
                 |

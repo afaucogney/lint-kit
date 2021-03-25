@@ -3,7 +3,7 @@ package fr.afaucogney.mobile.android.kit.lint.helper
 import com.android.tools.lint.checks.infrastructure.LintDetectorTest.kotlin
 
 val appBaseViewModelStub = kotlin("""
-        package com.edf.edfetmoi.presentation.common.viewmodel
+        package fr.afaucogney.app.presentation.common.viewmodel
         
         import androidx.lifecycle.AndroidViewModel
         

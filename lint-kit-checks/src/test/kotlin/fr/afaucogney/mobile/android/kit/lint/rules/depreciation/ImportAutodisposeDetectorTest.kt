@@ -14,7 +14,7 @@ class ImportAutodisposeDetectorTest {
             .files(autodisposeStub, LintDetectorTest.kotlin("""
                 |package foo
                 |
-                |import com.edf.edfetmoi.presentation.common.viewmodel.BaseViewModel
+                |import fr.afaucogney.app.presentation.common.viewmodel.BaseViewModel
                 |
                 |class IMyFeatureContractViewModel(app: Application) : BaseViewModel(app) {
                 |
@@ -33,7 +33,7 @@ class ImportAutodisposeDetectorTest {
             .files(autodisposeStub, LintDetectorTest.kotlin("""
                 |package foo
                 |
-                |import com.edf.edfetmoi.presentation.common.viewmodel.BaseViewModel
+                |import fr.afaucogney.app.presentation.common.viewmodel.BaseViewModel
                 |import com.uber.autodispose.kotlin.autoDisposable
                 |
                 |class IMyFeatureContractViewModel(app: Application) : BaseViewModel(app) {
@@ -51,13 +51,13 @@ class ImportAutodisposeDetectorTest {
         TestLintTask.lint()
             .allowMissingSdk()
             .files(autodisposeStub, LintDetectorTest.java("""
-                |package com.edf.edfetmoi.presentation.common.customview;
+                |package fr.afaucogney.app.presentation.common.customview;
                 |
                 |import android.content.Context;
                 |import android.util.AttributeSet;
                 |import android.widget.ScrollView;
                 |
-                |import com.edf.edfetmoi.presentation.feature.old.newsfeed.listener.ScrollViewListener;
+                |import fr.afaucogney.app.presentation.feature.old.newsfeed.listener.ScrollViewListener;
                 |
                 |/**
                 | * Created by sgabel on 22/11/2016.
@@ -98,14 +98,14 @@ class ImportAutodisposeDetectorTest {
         TestLintTask.lint()
             .allowMissingSdk()
             .files(autodisposeStub, LintDetectorTest.java("""
-                |package com.edf.edfetmoi.presentation.common.customview;
+                |package fr.afaucogney.app.presentation.common.customview;
                 |
                 |import android.content.Context;
                 |import android.util.AttributeSet;
                 |import android.widget.ScrollView;
                 |import com.uber.autodispose.kotlin.autoDisposable;
                 |
-                |import com.edf.edfetmoi.presentation.feature.old.newsfeed.listener.ScrollViewListener;
+                |import fr.afaucogney.app.presentation.feature.old.newsfeed.listener.ScrollViewListener;
                 |
                 |/**
                 | * Created by sgabel on 22/11/2016.

@@ -9,6 +9,6 @@ fun UClass.isBaseViewModel(): Boolean {
 
 fun UClass.isConcreteViewModel(context: JavaContext): Boolean {
     return this.superClass?.let {
-        context.evaluator.getQualifiedName(it) == "com.edf.edfetmoi.presentation.common.viewmodel.BaseViewModel"
+        context.evaluator.getQualifiedName(it) == "fr.afaucogney.app.presentation.common.viewmodel.BaseViewModel"
     } ?: false
 }
