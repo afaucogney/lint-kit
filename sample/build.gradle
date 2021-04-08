@@ -47,6 +47,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
 
 //    implementation 'com.github.afaucogney:lint-kit:-SNAPSHOT'
+//    implementation 'com.github.afaucogney:lint-kit:-SNAPSHOT'
     implementation 'com.github.afaucogney:lint-kit:-SNAPSHOT'
 //    implementation project(':lint-kit')
 //    lintChecks project(':lint-kit-checks')
