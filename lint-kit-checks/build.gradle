@@ -21,7 +21,7 @@ java {
 repositories {
     mavenCentral()
     google()
-    gradlePluginPortal()
+//    gradlePluginPortal()
 }
 
 //ext {
@@ -30,12 +30,13 @@ repositories {
 //}
 
 dependencies {
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
     compileOnly "com.android.tools.lint:lint-api:$lintVersion"
     compileOnly "com.android.tools.lint:lint-checks:$lintVersion"
     // Test
-//    compileOnly "com.android.tools.lint:lint:$lintVersion"
+    compileOnly "com.android.tools.lint:lint:$lintVersion"
 //    compileOnly "com.android.tools.lint:lint-tests:$lintVersion"
-//    compileOnly "com.android.tools:testutils:$lintVersion"
+    compileOnly "com.android.tools:testutils:$lintVersion"
 
 //    testImplementation "junit:junit:4.13.2"
 //    testImplementation "com.android.tools.lint:lint:$lintVersion"

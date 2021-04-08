@@ -48,7 +48,7 @@ dependencies {
 
 //    implementation 'com.github.afaucogney:lint-kit:-SNAPSHOT'
 //    implementation 'com.github.afaucogney:lint-kit:-SNAPSHOT'
-    implementation 'com.github.afaucogney:lint-kit:-SNAPSHOT'
+    implementation 'com.github.afaucogney:lint-kit:231882aed8'
 //    implementation project(':lint-kit')
 //    lintChecks project(':lint-kit-checks')
 }
