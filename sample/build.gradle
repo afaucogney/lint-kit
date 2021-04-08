@@ -12,7 +12,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "fr.afaucogney.mobile.android.sdk.lintkit"
+        applicationId "fr.afaucogney.mobile.android.kit.lint.sample"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
@@ -45,12 +45,6 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
-
-//    implementation 'com.github.afaucogney:lint-kit:-SNAPSHOT'
-//    implementation 'com.github.afaucogney:lint-kit:-SNAPSHOT'
-    implementation 'com.github.afaucogney:lint-kit:231882aed8'
-//    implementation project(':lint-kit')
-//    lintChecks project(':lint-kit-checks')
 }
 
-apply from: './lint.gradle'
+//apply from: './lint.gradle'

@@ -14,3 +14,8 @@
 .cxx
 local.properties
 /build/
+/lint-kit-checks/.gradle/
+/lint-kit-checks/build/
+/lint-kit/build/
+/build/
+/sample/.gradle/

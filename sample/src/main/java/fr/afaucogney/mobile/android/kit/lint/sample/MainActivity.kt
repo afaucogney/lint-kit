@@ -1,4 +1,4 @@
-package fr.afaucogney.mobile.android.kit.sample
+package fr.afaucogney.mobile.android.kit.lint.sample
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
@@ -7,7 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import fr.afaucogney.mobile.android.kit.sample.databinding.ActivityMainBinding
+import fr.afaucogney.mobile.android.kit.lint.sample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,3 +1,8 @@
+dependencies {
+    implementation 'com.github.afaucogney:lint-kit:1919451c71'
+//    implementation project(':lint-kit')
+}
+
 // Settings
 android {
     lintOptions {
@@ -59,13 +64,13 @@ android {
                 'KotlinPropertyAccess',
                 'LambdaLast',
                 'NoHardKeywords',
-                'UnknownNullness',
+                'UnknownNullness'//,
                 // Custom
-                'WrongViewIdName',
-                'AutodisposeIsDeprecated',
-                'MutableLiveData',
-                'FeatureContractInterfaceSegregation',
-                'FeatureContractNaming'
+//                'WrongViewIdName',
+//                'AutodisposeIsDeprecated',
+//                'MutableLiveData',
+//                'FeatureContractInterfaceSegregation',
+//                'FeatureContractNaming'
         disable 'TrustAllX509TrustManager',
                 'ObsoleteLintCustomCheck',
                 'SyntheticAccessor', // many use case in Kotlin

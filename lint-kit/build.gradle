@@ -35,16 +35,7 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'fr.afaucogney.mobile.android.kit'
                 artifactId = 'lint-kit'
-                version = '1.0'
-            }
-            // Creates a Maven publication called “debug”.
-            debug(MavenPublication) {
-                // Applies the component for the debug build variant.
-                from components.debug
-
-                groupId = 'fr.afaucogney.mobile.android.kit'
-                artifactId = 'lint-kit-debug'
-                version = '1.0'
+                version = '0.1.0'
             }
         }
     }
