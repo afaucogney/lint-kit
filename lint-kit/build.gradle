@@ -7,7 +7,6 @@ android {
     compileSdkVersion 31
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 31
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_11
@@ -17,7 +16,7 @@ android {
 
 /** Package the given lint checks library into this AAR  */
 dependencies {
-    //lintRuntimeOnly project(':lint-kit-checks')
+    lintPublish project(':lint-kit-checks')
 }
 
 // Because the components are created only during the afterEvaluate phase, you must
