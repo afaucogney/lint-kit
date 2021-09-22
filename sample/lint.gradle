@@ -1,6 +1,6 @@
 dependencies {
-    implementation 'com.github.afaucogney:lint-kit:1919451c71'
-//    implementation project(':lint-kit')
+//    implementation 'com.github.afaucogney:lint-kit:-SNAPSHOT'
+    implementation project(':lint-kit')
 }
 
 // Settings

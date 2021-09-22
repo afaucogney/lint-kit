@@ -4,22 +4,20 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 1
-        versionName "0.1.0"
+        targetSdkVersion 31
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 }
 
 /** Package the given lint checks library into this AAR  */
 dependencies {
-    lintPublish project(':lint-kit-checks')
+    //lintRuntimeOnly project(':lint-kit-checks')
 }
 
 // Because the components are created only during the afterEvaluate phase, you must
@@ -35,7 +33,7 @@ afterEvaluate {
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'fr.afaucogney.mobile.android.kit'
                 artifactId = 'lint-kit'
-                version = '0.1.0'
+                version = '0.2.0'
             }
         }
     }

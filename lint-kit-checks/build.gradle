@@ -4,15 +4,15 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 }
 
 repositories {
     mavenCentral()
     google()
 }
-
+//7.02
 dependencies {
     // Lint
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
@@ -22,6 +22,3 @@ dependencies {
     testImplementation "com.android.tools:testutils:$lintVersion"
     testImplementation "com.android.tools.lint:lint-tests:$lintVersion"
 }
-
-sourceCompatibility = "1.8"
-targetCompatibility = "1.8"
