@@ -1,7 +1,8 @@
 # TODO
 
 [ ] Detect that ViewModel bind to Activity is named xxxActivityViewModel
-[ ] Detect every viewmodel function can only support LiveData return types
+[x] Detect every viewmodel function can only support LiveData return types
+[x] Detect that viewmodel do not expose callback in its Api
 
 # Backlog
 

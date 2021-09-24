@@ -10,3 +10,19 @@ fun UClass.isFeatureContract(): Boolean {
         else -> false
     }
 }
+
+val UClass.viewModelInterface: UClass?
+    get() = this.innerClasses.find { it.name == "ViewModel" }
+
+val UClass.viewCapabilitiesInterface: UClass?
+    get() = this.innerClasses.find { it.name == "ViewCapabilities" }
+
+val UClass.viewNavigationInterface: UClass?
+    get() = this.innerClasses.find { it.name == "ViewNavigation" }
+
+val UClass.viewEventInterface: UClass?
+    get() = this.innerClasses.find { it.name == "ViewEvent" }
+
+val UClass.viewTagInterface: UClass?
+    get() = this.innerClasses.find { it.name == "ViewTag" }
+
