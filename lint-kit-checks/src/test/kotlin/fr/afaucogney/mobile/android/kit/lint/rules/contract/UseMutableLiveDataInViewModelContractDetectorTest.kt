@@ -1,6 +1,8 @@
+@file:Suppress("UnstableApiUsage")
+
 package fr.afaucogney.mobile.android.kit.lint.rules.contract
 
-import com.android.tools.lint.checks.infrastructure.TestFiles.kotlin
+import com.android.tools.lint.checks.infrastructure.TestFiles.kt
 import com.android.tools.lint.checks.infrastructure.TestLintTask.lint
 import fr.afaucogney.mobile.android.kit.lint.helper.liveDataStub
 import fr.afaucogney.mobile.android.kit.lint.helper.mutableLiveDataStub
@@ -13,7 +15,9 @@ class UseMutableLiveDataInViewModelContractDetectorTest {
     fun testSingleError() {
         lint()
             .allowMissingSdk()
-            .files(mutableLiveDataStub, kotlin("""
+            .files(
+                mutableLiveDataStub, kt(
+                    """
                 |package foo
                 |
                 |import androidx.lifecycle.MutableLiveData
@@ -22,7 +26,9 @@ class UseMutableLiveDataInViewModelContractDetectorTest {
                 |   interface ViewModel {
                 |       fun observeRememberMeState(): MutableLiveData<Any>
                 |   }
-                |}""".trimMargin()))
+                |}""".trimMargin()
+                )
+            )
             .issues(ISSUE_MUTABLELIVEDATA_IN_FEATURE_CONTRACT)
             .run()
             .expectErrorCount(1)
@@ -32,7 +38,9 @@ class UseMutableLiveDataInViewModelContractDetectorTest {
     fun testSingleVarError() {
         lint()
             .allowMissingSdk()
-            .files(mutableLiveDataStub, kotlin("""
+            .files(
+                mutableLiveDataStub, kt(
+                    """
                 |package foo
                 |
                 |import androidx.lifecycle.MutableLiveData
@@ -42,7 +50,9 @@ class UseMutableLiveDataInViewModelContractDetectorTest {
                 |       fun observeRememberMeState(): MutableLiveData<Any>
                 |       var tutu : MutableLiveData<Any>
                 |   }
-                |}""".trimMargin()))
+                |}""".trimMargin()
+                )
+            )
             .issues(ISSUE_MUTABLELIVEDATA_IN_FEATURE_CONTRACT)
             .run()
             .expectErrorCount(2)
@@ -52,7 +62,10 @@ class UseMutableLiveDataInViewModelContractDetectorTest {
     fun testDualError() {
         lint()
             .allowMissingSdk()
-            .files(mutableLiveDataStub, kotlin("""
+            .files(
+                mutableLiveDataStub,
+                kt(
+                    """
                 |package foo
                 |
                 |import androidx.lifecycle.MutableLiveData
@@ -62,7 +75,9 @@ class UseMutableLiveDataInViewModelContractDetectorTest {
                 |       fun observeRememberMeState1(): MutableLiveData<Any>
                 |       fun observeRememberMeState2(): MutableLiveData<Any>
                 |   }
-                |}""".trimMargin()))
+                |}""".trimMargin()
+                )
+            )
             .issues(ISSUE_MUTABLELIVEDATA_IN_FEATURE_CONTRACT)
             .run()
             .expectErrorCount(2)
@@ -73,7 +88,9 @@ class UseMutableLiveDataInViewModelContractDetectorTest {
     fun testHybrid() {
         lint()
             .allowMissingSdk()
-            .files(liveDataStub, mutableLiveDataStub, kotlin("""
+            .files(
+                liveDataStub, mutableLiveDataStub, kt(
+                    """
                 |package foo
                 |
                 |import androidx.lifecycle.LiveData
@@ -84,7 +101,9 @@ class UseMutableLiveDataInViewModelContractDetectorTest {
                 |       fun observeRememberMeState1(): LiveData<Any>
                 |       fun observeRememberMeState2(): MutableLiveData<Any>
                 |   }
-                |}""".trimMargin()))
+                |}""".trimMargin()
+                )
+            )
             .issues(ISSUE_MUTABLELIVEDATA_IN_FEATURE_CONTRACT)
             .run()
             .expectErrorCount(1)
@@ -94,7 +113,9 @@ class UseMutableLiveDataInViewModelContractDetectorTest {
     fun testSuccess() {
         lint()
             .allowMissingSdk()
-            .files(liveDataStub, kotlin("""
+            .files(
+                liveDataStub, kt(
+                    """
                 |package foo;
                 |
                 |import androidx.lifecycle.LiveData
@@ -104,7 +125,9 @@ class UseMutableLiveDataInViewModelContractDetectorTest {
                 |       fun observeRememberMeState1(): LiveData<Any>
                 |       fun observeRememberMeState2(): LiveData<Any>
                 |   }
-                |}""".trimMargin()))
+                |}""".trimMargin()
+                )
+            )
             .issues(ISSUE_MUTABLELIVEDATA_IN_FEATURE_CONTRACT)
             .run()
             .expectClean()

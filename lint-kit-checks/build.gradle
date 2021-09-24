@@ -1,6 +1,7 @@
 plugins {
     id 'java-library'
-    id 'kotlin'
+    id 'kotlin' // version $kotlinVersion
+    //id 'com.android.lint'
 }
 
 java {
@@ -15,10 +16,19 @@ repositories {
 //7.02
 dependencies {
     // Lint
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
-    compileOnly "com.android.tools.lint:lint-api:$lintVersion"
-    compileOnly "com.android.tools.lint:lint-checks:$lintVersion"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    implementation "com.android.tools.lint:lint-api:$lintVersion"
+    implementation "com.android.tools.lint:lint-checks:$lintVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+
     // Test
     testImplementation "com.android.tools:testutils:$lintVersion"
     testImplementation "com.android.tools.lint:lint-tests:$lintVersion"
 }
+
+//tasks.withType<KotlinCompile> {
+//    kotlinOptions.jvmTarget = "11"
+//}
+

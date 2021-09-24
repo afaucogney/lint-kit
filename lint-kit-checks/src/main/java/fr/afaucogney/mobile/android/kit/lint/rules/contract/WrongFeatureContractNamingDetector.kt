@@ -12,7 +12,7 @@ import com.android.tools.lint.detector.api.Scope
 import com.android.tools.lint.detector.api.Severity
 import fr.afaucogney.mobile.android.kit.lint.helper.isFeatureContract
 import org.jetbrains.uast.UClass
-import java.util.*
+import java.util.EnumSet
 
 class WrongFeatureContractNamingDetector : Detector(), Detector.UastScanner {
 
@@ -21,16 +21,17 @@ class WrongFeatureContractNamingDetector : Detector(), Detector.UastScanner {
     ///////////////////////////////////////////////////////////////////////////
 
     companion object {
-        val ISSUE_FEATURE_CONTRACT_NAMING = Issue.create("FeatureContractNaming",
-                "Feature Contract Interface should be well named.",
-                "Contract Interface interface name should start by I and finish with Contract",
-                Category.COMPLIANCE,
-                5,
-                Severity.WARNING,
-                Implementation(
-                        WrongFeatureContractNamingDetector::class.java,
-                        EnumSet.of(Scope.JAVA_FILE, Scope.TEST_SOURCES)
-                )
+        val ISSUE_FEATURE_CONTRACT_NAMING = Issue.create(
+            "FeatureContractNaming",
+            "Feature Contract Interface should be well named.",
+            "Contract Interface interface name should start by I and finish with Contract",
+            Category.COMPLIANCE,
+            5,
+            Severity.WARNING,
+            Implementation(
+                WrongFeatureContractNamingDetector::class.java,
+                EnumSet.of(Scope.JAVA_FILE, Scope.TEST_SOURCES)
+            )
         )
     }
 
@@ -56,18 +57,18 @@ class WrongFeatureContractNamingDetector : Detector(), Detector.UastScanner {
                 node.name?.let { name ->
                     if (name.endsWith("contract")) {
                         context.report(
-                                ISSUE_FEATURE_CONTRACT_NAMING,
-                                node,
-                                context.getNameLocation(node),
-                                "Camel case not respected contract, the name should end by Contract"
+                            ISSUE_FEATURE_CONTRACT_NAMING,
+                            node,
+                            context.getNameLocation(node),
+                            "Camel case not respected contract, the name should end by Contract"
                         )
                     }
                     if (!name.startsWith("I", true) || name[1].isLowerCase()) {
                         context.report(
-                                ISSUE_FEATURE_CONTRACT_NAMING,
-                                node,
-                                context.getNameLocation(node),
-                                "Interface contract should start with I, to help finding them with autocomplete"
+                            ISSUE_FEATURE_CONTRACT_NAMING,
+                            node,
+                            context.getNameLocation(node),
+                            "Interface contract should start with I, to help finding them with autocomplete"
                         )
                     }
                 }

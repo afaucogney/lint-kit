@@ -130,4 +130,3 @@ if (System.getenv('IsPR') || enableBaselineUpdate) {
 // Delete the previous baseline
 // Commit version update + baseline files
 ```
-

@@ -14,7 +14,7 @@ import fr.afaucogney.mobile.android.kit.lint.helper.containInitLambda
 import fr.afaucogney.mobile.android.kit.lint.helper.isBaseViewModel
 import fr.afaucogney.mobile.android.kit.lint.helper.isConcreteViewModel
 import org.jetbrains.uast.UClass
-import java.util.*
+import java.util.EnumSet
 
 class UseInitInConcreteViewModelDetector : Detector(), Detector.UastScanner {
 
@@ -23,16 +23,17 @@ class UseInitInConcreteViewModelDetector : Detector(), Detector.UastScanner {
     ///////////////////////////////////////////////////////////////////////////
 
     companion object {
-        val ISSUE_INIT_IN_VIEWMODEL = Issue.create("KotlinInitInAppViewModel",
-                "ViewModel should not implement the init routine.",
-                "Because of the BaseViewModel, initialisation should be done by overriding onCreated() method",
-                Category.CORRECTNESS,
-                9,
-                Severity.ERROR,
-                Implementation(
-                        UseInitInConcreteViewModelDetector::class.java,
-                        EnumSet.of(Scope.JAVA_FILE, Scope.TEST_SOURCES)
-                )
+        val ISSUE_INIT_IN_VIEWMODEL = Issue.create(
+            "KotlinInitInAppViewModel",
+            "ViewModel should not implement the init routine.",
+            "Because of the BaseViewModel, initialisation should be done by overriding onCreated() method",
+            Category.CORRECTNESS,
+            9,
+            Severity.ERROR,
+            Implementation(
+                UseInitInConcreteViewModelDetector::class.java,
+                EnumSet.of(Scope.JAVA_FILE, Scope.TEST_SOURCES)
+            )
         )
     }
 
@@ -54,12 +55,14 @@ class UseInitInConcreteViewModelDetector : Detector(), Detector.UastScanner {
 
     class RuleHandler(private val context: JavaContext) : UElementHandler() {
         override fun visitClass(node: UClass) {
-            if (node.isBaseViewModel().not() && node.isConcreteViewModel(context) && node.containInitLambda()) {
+            if (node.isBaseViewModel()
+                    .not() && node.isConcreteViewModel(context) && node.containInitLambda()
+            ) {
                 context.report(
-                        ISSUE_INIT_IN_VIEWMODEL,
-                        node,
-                        context.getNameLocation(node),
-                        "init {...} should not be defined in concrete ViewModels"
+                    ISSUE_INIT_IN_VIEWMODEL,
+                    node,
+                    context.getNameLocation(node),
+                    "init {...} should not be defined in concrete ViewModels"
                 )
             }
         }

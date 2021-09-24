@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 package fr.afaucogney.mobile.android.kit.lint.rules.xml
 
 import com.android.SdkConstants
@@ -20,8 +22,9 @@ class WrongViewIdNameDetector : LayoutDetector() {
 
         private const val ISSUE_ID = "WrongViewIdName"
         private const val ISSUE_DESCRIPTION = "The id name must follow the project convention"
-        private const val ISSUE_EXPLANATION = "The id name must start with View name's uppercase letters in lower case + _ " +
-                "and then the functional identification."
+        private const val ISSUE_EXPLANATION =
+            "The id name must start with View name's uppercase letters in lower case + _ " +
+                    "and then the functional identification."
 
         val ISSUE_WRONG_VIEW_ID_NAME = Issue.create(
             id = ISSUE_ID,
@@ -53,11 +56,16 @@ class WrongViewIdNameDetector : LayoutDetector() {
     ///////////////////////////////////////////////////////////////////////////
 
     override fun visitAttribute(context: XmlContext, attribute: Attr) {
-        val id = attribute.value.replaceFirst("@+id/","")
+        val id = attribute.value.replaceFirst("@+id/", "")
         val tagName = attribute.ownerElement.localName.split(".").last()
-        val tagArchronyme = tagName.filter { it.isUpperCase() }.toLowerCase()
+        val tagArchronyme = tagName.filter { it.isUpperCase() }.lowercase()
         if (!id.startsWith(tagArchronyme + "_")) {
-            context.report(ISSUE_WRONG_VIEW_ID_NAME, attribute, context.getLocation(attribute), ISSUE_DESCRIPTION)
+            context.report(
+                ISSUE_WRONG_VIEW_ID_NAME,
+                attribute,
+                context.getLocation(attribute),
+                ISSUE_DESCRIPTION
+            )
         }
     }
 }

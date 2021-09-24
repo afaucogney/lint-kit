@@ -1,8 +1,11 @@
+@file:Suppress("UnstableApiUsage")
+
 package fr.afaucogney.mobile.android.kit.lint.rules.viewmodel
 
-import com.android.tools.lint.checks.infrastructure.LintDetectorTest.kotlin
+import com.android.tools.lint.checks.infrastructure.TestFiles.kt
 import com.android.tools.lint.checks.infrastructure.TestLintTask.lint
-import fr.afaucogney.mobile.android.kit.lint.helper.appBaseViewModelStub
+import fr.afaucogney.mobile.android.kit.lint.helper.fakeBaseViewModelStub
+import fr.afaucogney.mobile.android.kit.lint.rules.viewmodel.UseInitInConcreteViewModelDetector.Companion.ISSUE_INIT_IN_VIEWMODEL
 import org.junit.Test
 
 class InitUsageInConcreteViewModelDetectorTest {
@@ -10,22 +13,29 @@ class InitUsageInConcreteViewModelDetectorTest {
     @Test
     fun testSuccessNoViewModel() {
         lint()
-                .allowMissingSdk()
-                .files(kotlin("""
+            .allowMissingSdk()
+            .files(
+                kt(
+                    """
                 |package foo
                 |
                 |interface IMyFeatureContract {
-                |}""".trimMargin()))
-                .issues(UseInitInConcreteViewModelDetector.ISSUE_INIT_IN_VIEWMODEL)
-                .run()
-                .expectClean()
+                |}""".trimMargin()
+                )
+            )
+            .issues(ISSUE_INIT_IN_VIEWMODEL)
+            .run()
+            .expectClean()
     }
 
     @Test
     fun testSuccessViewModel() {
         lint()
-                .allowMissingSdk()
-                .files(appBaseViewModelStub, kotlin("""
+            .allowMissingSdk()
+            .files(
+                fakeBaseViewModelStub,
+                kt(
+                    """
                 |package foo
                 |
                 |import fr.afaucogney.app.presentation.common.viewmodel.BaseViewModel
@@ -34,17 +44,22 @@ class InitUsageInConcreteViewModelDetectorTest {
                 |
                 |fun tutu() {}
                 |
-                |}""".trimMargin()))
-                .issues(UseInitInConcreteViewModelDetector.ISSUE_INIT_IN_VIEWMODEL)
-                .run()
-                .expectClean()
+                |}""".trimMargin()
+                )
+            )
+            .issues(ISSUE_INIT_IN_VIEWMODEL)
+            .run()
+            .expectClean()
     }
 
     @Test
     fun testFailedViewModel() {
         lint()
-                .allowMissingSdk()
-                .files(appBaseViewModelStub, kotlin("""
+            .allowMissingSdk()
+            .files(
+                fakeBaseViewModelStub,
+                kt(
+                    """
                 |package foo
                 |
                 |import fr.afaucogney.app.presentation.common.viewmodel.BaseViewModel
@@ -55,17 +70,21 @@ class InitUsageInConcreteViewModelDetectorTest {
                 |
                 |fun tutu() {}
                 |
-                |}""".trimMargin()))
-                .issues(UseInitInConcreteViewModelDetector.ISSUE_INIT_IN_VIEWMODEL)
-                .run()
-                .expectErrorCount(1)
+                |}""".trimMargin()
+                )
+            )
+            .issues(ISSUE_INIT_IN_VIEWMODEL)
+            .run()
+            .expectErrorCount(1)
     }
 
     @Test
     fun testFailedViewModel2() {
         lint()
-                .allowMissingSdk()
-                .files(appBaseViewModelStub, kotlin("""
+            .allowMissingSdk()
+            .files(
+                fakeBaseViewModelStub, kt(
+                    """
                 |package foo
                 |
                 |import fr.afaucogney.app.presentation.common.viewmodel.BaseViewModel
@@ -77,18 +96,22 @@ class InitUsageInConcreteViewModelDetectorTest {
                 |
                 |fun tutu() {}
                 |
-                |}""".trimMargin()))
-                .issues(UseInitInConcreteViewModelDetector.ISSUE_INIT_IN_VIEWMODEL)
-                .run()
-                .expectErrorCount(1)
+                |}""".trimMargin()
+                )
+            )
+            .issues(ISSUE_INIT_IN_VIEWMODEL)
+            .run()
+            .expectErrorCount(1)
     }
 
 
     @Test
     fun testFailedViewModel3() {
         lint()
-                .allowMissingSdk()
-                .files(appBaseViewModelStub, kotlin("""
+            .allowMissingSdk()
+            .files(
+                fakeBaseViewModelStub, kt(
+                    """
                 |package foo
                 |
                 |import fr.afaucogney.app.presentation.common.viewmodel.BaseViewModel
@@ -99,18 +122,22 @@ class InitUsageInConcreteViewModelDetectorTest {
                 |
                 |fun tutu() {}
                 |
-                |}""".trimMargin()))
-                .issues(UseInitInConcreteViewModelDetector.ISSUE_INIT_IN_VIEWMODEL)
-                .run()
-                .expectErrorCount(1)
+                |}""".trimMargin()
+                )
+            )
+            .issues(ISSUE_INIT_IN_VIEWMODEL)
+            .run()
+            .expectErrorCount(1)
     }
 
 
     @Test
     fun testFailedButNotAViewModel() {
         lint()
-                .allowMissingSdk()
-                .files(appBaseViewModelStub, kotlin("""
+            .allowMissingSdk()
+            .files(
+                fakeBaseViewModelStub, kt(
+                    """
                 |package foo
                 |
                 |import fr.afaucogney.app.presentation.common.viewmodel.BaseViewModel
@@ -121,9 +148,11 @@ class InitUsageInConcreteViewModelDetectorTest {
                 |
                 |fun tutu() {}
                 |
-                |}""".trimMargin()))
-                .issues(UseInitInConcreteViewModelDetector.ISSUE_INIT_IN_VIEWMODEL)
-                .run()
-                .expectClean()
+                |}""".trimMargin()
+                )
+            )
+            .issues(ISSUE_INIT_IN_VIEWMODEL)
+            .run()
+            .expectClean()
     }
 }

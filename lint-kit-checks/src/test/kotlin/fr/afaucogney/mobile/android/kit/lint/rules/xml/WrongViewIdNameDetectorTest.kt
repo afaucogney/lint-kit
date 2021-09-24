@@ -1,8 +1,11 @@
+@file:Suppress("UnstableApiUsage")
+
 package fr.afaucogney.mobile.android.kit.lint.rules.xml
 
 import com.android.tools.lint.checks.infrastructure.LintDetectorTest
 import com.android.tools.lint.detector.api.Detector
 import com.android.tools.lint.detector.api.Issue
+import fr.afaucogney.mobile.android.kit.lint.rules.xml.WrongViewIdNameDetector.Companion.ISSUE_WRONG_VIEW_ID_NAME
 import org.junit.Test
 
 class WrongViewIdNameDetectorTest : LintDetectorTest() {
@@ -186,6 +189,6 @@ class WrongViewIdNameDetectorTest : LintDetectorTest() {
     }
 
     override fun getIssues(): List<Issue> {
-        return listOf(WrongViewIdNameDetector.ISSUE_WRONG_VIEW_ID_NAME)
+        return listOf(ISSUE_WRONG_VIEW_ID_NAME)
     }
 }

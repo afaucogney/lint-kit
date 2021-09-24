@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 package fr.afaucogney.mobile.android.kit.lint.rules.depreciation
 
 import com.android.tools.lint.client.api.UElementHandler
@@ -8,9 +10,8 @@ import com.android.tools.lint.detector.api.Issue
 import com.android.tools.lint.detector.api.JavaContext
 import com.android.tools.lint.detector.api.Scope
 import com.android.tools.lint.detector.api.Severity
-import com.google.common.annotations.Beta
 import org.jetbrains.uast.UFile
-import java.util.*
+import java.util.EnumSet
 
 class ImportAutodisposeDetector : Detector(), Detector.UastScanner {
 

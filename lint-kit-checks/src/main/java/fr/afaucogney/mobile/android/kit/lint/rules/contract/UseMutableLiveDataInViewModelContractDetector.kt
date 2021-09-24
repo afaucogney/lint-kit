@@ -12,9 +12,8 @@ import com.android.tools.lint.detector.api.Scope
 import com.android.tools.lint.detector.api.Severity
 import com.android.tools.lint.detector.api.SourceCodeScanner
 import fr.afaucogney.mobile.android.kit.lint.helper.isFeatureContract
-import com.intellij.psi.impl.compiled.ClsTypeElementImpl
 import org.jetbrains.uast.UClass
-import java.util.*
+import java.util.EnumSet
 
 class UseMutableLiveDataInViewModelContractDetector : Detector(), SourceCodeScanner {
 
@@ -23,16 +22,17 @@ class UseMutableLiveDataInViewModelContractDetector : Detector(), SourceCodeScan
     ///////////////////////////////////////////////////////////////////////////
 
     companion object {
-        val ISSUE_MUTABLELIVEDATA_IN_FEATURE_CONTRACT = Issue.create("MutableLiveData",
-                "Feature ViewModel Contract Interface should only expose LiveData.",
-                "Contract should not expose MutableLiveData but only LiveData",
-                Category.COMPLIANCE,
-                8,
-                Severity.ERROR,
-                Implementation(
-                        UseMutableLiveDataInViewModelContractDetector::class.java,
-                        EnumSet.of(Scope.JAVA_FILE, Scope.TEST_SOURCES)
-                )
+        val ISSUE_MUTABLELIVEDATA_IN_FEATURE_CONTRACT = Issue.create(
+            "MutableLiveData",
+            "Feature ViewModel Contract Interface should only expose LiveData.",
+            "Contract should not expose MutableLiveData but only LiveData",
+            Category.COMPLIANCE,
+            8,
+            Severity.ERROR,
+            Implementation(
+                UseMutableLiveDataInViewModelContractDetector::class.java,
+                EnumSet.of(Scope.JAVA_FILE, Scope.TEST_SOURCES)
+            )
         )
     }
 
@@ -55,14 +55,18 @@ class UseMutableLiveDataInViewModelContractDetector : Detector(), SourceCodeScan
     class RuleHandler(private val context: JavaContext) : UElementHandler() {
         override fun visitClass(node: UClass) {
             if (node.isFeatureContract()) {
-                node.innerClasses.find { it.name == "ViewModel" }.let {
-                    it?.methods?.forEach {
-                        if ((it.returnTypeElement as ClsTypeElementImpl).canonicalText.contains("mutablelivedata", true)) {
+                node.innerClasses.find { it.name == "ViewModel" }.let { clazz ->
+                    clazz?.methods?.forEach { method ->
+                        if (method.returnType?.canonicalText?.contains(
+                                "mutablelivedata",
+                                true
+                            ) == true
+                        ) {
                             context.report(
-                                    ISSUE_MUTABLELIVEDATA_IN_FEATURE_CONTRACT,
-                                    node,
-                                    context.getNameLocation(it),
-                                    "The ViewModel interface method should only return LiveData (immutable)"
+                                ISSUE_MUTABLELIVEDATA_IN_FEATURE_CONTRACT,
+                                node,
+                                context.getNameLocation(method),
+                                "The ViewModel interface method should only return LiveData (immutable)"
                             )
                         }
                     }
