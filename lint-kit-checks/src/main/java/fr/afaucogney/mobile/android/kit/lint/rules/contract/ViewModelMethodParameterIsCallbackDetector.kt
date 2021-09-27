@@ -24,7 +24,7 @@ class ViewModelMethodParameterIsCallbackDetector : Detector(), SourceCodeScanner
     ///////////////////////////////////////////////////////////////////////////
 
     companion object {
-        val ISSUE_VIEWMODEL_METHOD_PARAMETER_IS_CALLBACK = Issue.create(
+        val ISSUE = Issue.create(
             "ViewModelMethodParameterIsCallback",
             "Feature ViewModel Contract Interface should only expose members of type LiveData.",
             "Contract should not expose other types than LiveData to prevent memory leaks between ViewModel" +
@@ -124,7 +124,7 @@ class ViewModelMethodParameterIsCallbackDetector : Detector(), SourceCodeScanner
 
         private fun reportIssue(node: UClass, method: UMethod, returnType: String) {
             context.report(
-                ISSUE_VIEWMODEL_METHOD_PARAMETER_IS_CALLBACK,
+                ISSUE,
                 node,
                 context.getNameLocation(method),
                 "The ViewModel method parameter should not by typed with $returnType"

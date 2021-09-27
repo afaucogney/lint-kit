@@ -31,7 +31,7 @@ class ViewModelApiIsNotCompliantDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ViewModelApiIsNotCompliantDetector.ISSUE)
+            .issues(WrongViewModelApiNamingDetector.ISSUE)
             .run()
             .expectClean()
     }
@@ -58,7 +58,7 @@ class ViewModelApiIsNotCompliantDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ViewModelApiIsNotCompliantDetector.ISSUE)
+            .issues(WrongViewModelApiNamingDetector.ISSUE)
             .run()
             .expectErrorCount(4)
     }

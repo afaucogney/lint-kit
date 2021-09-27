@@ -21,7 +21,7 @@ class WrongFeatureContractNamingDetector : Detector(), Detector.UastScanner {
     ///////////////////////////////////////////////////////////////////////////
 
     companion object {
-        val ISSUE_FEATURE_CONTRACT_NAMING = Issue.create(
+        val ISSUE = Issue.create(
             "FeatureContractNaming",
             "Feature Contract Interface should be well named.",
             "Contract Interface interface name should start by I and finish with Contract",
@@ -57,7 +57,7 @@ class WrongFeatureContractNamingDetector : Detector(), Detector.UastScanner {
                 node.name?.let { name ->
                     if (name.endsWith("contract")) {
                         context.report(
-                            ISSUE_FEATURE_CONTRACT_NAMING,
+                            ISSUE,
                             node,
                             context.getNameLocation(node),
                             "Camel case not respected contract, the name should end by Contract"
@@ -65,7 +65,7 @@ class WrongFeatureContractNamingDetector : Detector(), Detector.UastScanner {
                     }
                     if (!name.startsWith("I", true) || name[1].isLowerCase()) {
                         context.report(
-                            ISSUE_FEATURE_CONTRACT_NAMING,
+                            ISSUE,
                             node,
                             context.getNameLocation(node),
                             "Interface contract should start with I, to help finding them with autocomplete"

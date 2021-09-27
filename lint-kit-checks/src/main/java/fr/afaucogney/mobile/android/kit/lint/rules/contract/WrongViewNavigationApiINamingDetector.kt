@@ -3,11 +3,10 @@
 package fr.afaucogney.mobile.android.kit.lint.rules.contract
 
 import com.android.tools.lint.detector.api.Issue
-import fr.afaucogney.mobile.android.kit.lint.helper.viewCapabilitiesInterface
 import fr.afaucogney.mobile.android.kit.lint.helper.viewNavigationInterface
 import org.jetbrains.uast.UClass
 
-class ViewNavigationApiIsNotCompliantDetector :
+class WrongViewNavigationApiINamingDetector :
     AbstractFeatureContractViewApiIsNotCompliantDetector() {
 
     companion object {
@@ -22,7 +21,7 @@ class ViewNavigationApiIsNotCompliantDetector :
             issueId,
             className,
             compliantMethods,
-            ViewNavigationApiIsNotCompliantDetector::class.java
+            WrongViewNavigationApiINamingDetector::class.java
         )
     }
 
@@ -30,9 +29,9 @@ class ViewNavigationApiIsNotCompliantDetector :
     // SPECIALIZATION
     ///////////////////////////////////////////////////////////////////////////
 
-    override val issueId = ViewNavigationApiIsNotCompliantDetector.issueId
-    override val className = ViewNavigationApiIsNotCompliantDetector.className
-    override val compliantMethods = ViewNavigationApiIsNotCompliantDetector.compliantMethods
+    override val issueId = WrongViewNavigationApiINamingDetector.issueId
+    override val className = WrongViewNavigationApiINamingDetector.className
+    override val compliantMethods = WrongViewNavigationApiINamingDetector.compliantMethods
     override val issue: Issue = ISSUE
 
     override fun UClass.selectClasses(): UClass? {

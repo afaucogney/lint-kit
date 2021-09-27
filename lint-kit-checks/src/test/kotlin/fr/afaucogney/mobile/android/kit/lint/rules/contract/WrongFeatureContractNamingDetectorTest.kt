@@ -4,7 +4,7 @@ package fr.afaucogney.mobile.android.kit.lint.rules.contract
 
 import com.android.tools.lint.checks.infrastructure.TestFiles.kt
 import com.android.tools.lint.checks.infrastructure.TestLintTask.lint
-import fr.afaucogney.mobile.android.kit.lint.rules.contract.WrongFeatureContractNamingDetector.Companion.ISSUE_FEATURE_CONTRACT_NAMING
+import fr.afaucogney.mobile.android.kit.lint.rules.contract.WrongFeatureContractNamingDetector.Companion.ISSUE
 import org.junit.Test
 
 class WrongFeatureContractNamingDetectorTest {
@@ -22,7 +22,7 @@ class WrongFeatureContractNamingDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_FEATURE_CONTRACT_NAMING)
+            .issues(ISSUE)
             .run()
             .expectClean()
     }
@@ -40,7 +40,7 @@ class WrongFeatureContractNamingDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_FEATURE_CONTRACT_NAMING)
+            .issues(ISSUE)
             .run()
             .expectWarningCount(1)
     }
@@ -58,7 +58,7 @@ class WrongFeatureContractNamingDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_FEATURE_CONTRACT_NAMING)
+            .issues(ISSUE)
             .run()
             .expectWarningCount(1)
     }
@@ -76,7 +76,7 @@ class WrongFeatureContractNamingDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_FEATURE_CONTRACT_NAMING)
+            .issues(ISSUE)
             .run()
             .expectWarningCount(2)
     }

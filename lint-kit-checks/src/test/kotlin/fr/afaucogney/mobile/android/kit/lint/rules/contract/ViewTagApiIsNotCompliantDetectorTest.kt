@@ -29,7 +29,7 @@ class ViewTagApiIsNotCompliantDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ViewTagApiIsNotCompliantDetector.ISSUE)
+            .issues(WrongViewTagApiNamingDetector.ISSUE)
             .run()
             .expectClean()
     }
@@ -57,7 +57,7 @@ class ViewTagApiIsNotCompliantDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ViewTagApiIsNotCompliantDetector.ISSUE)
+            .issues(WrongViewTagApiNamingDetector.ISSUE)
             .run()
             .expectErrorCount(5)
     }

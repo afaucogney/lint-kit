@@ -31,7 +31,7 @@ class ViewNavigationApiIsNotCompliantDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ViewNavigationApiIsNotCompliantDetector.ISSUE)
+            .issues(WrongViewNavigationApiINamingDetector.ISSUE)
             .run()
             .expectClean()
     }
@@ -59,7 +59,7 @@ class ViewNavigationApiIsNotCompliantDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ViewNavigationApiIsNotCompliantDetector.ISSUE)
+            .issues(WrongViewNavigationApiINamingDetector.ISSUE)
             .run()
             .expectErrorCount(5)
     }

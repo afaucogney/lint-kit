@@ -4,7 +4,7 @@ package fr.afaucogney.mobile.android.kit.lint.rules.contract
 
 import com.android.tools.lint.checks.infrastructure.TestFiles.kt
 import com.android.tools.lint.checks.infrastructure.TestLintTask
-import fr.afaucogney.mobile.android.kit.lint.rules.contract.WellSegregationOfFeatureContractInterfaceDetector.Companion.ISSUE_FEATURE_CONTRACT_SEGREGATION
+import fr.afaucogney.mobile.android.kit.lint.rules.contract.NotEnoughtFeatureContractInterfaceSegregationDetector.Companion.ISSUE_FEATURE_CONTRACT_SEGREGATION
 import org.junit.Test
 
 class WellSegregationOfFeatureContractInterfaceDetectorTest {

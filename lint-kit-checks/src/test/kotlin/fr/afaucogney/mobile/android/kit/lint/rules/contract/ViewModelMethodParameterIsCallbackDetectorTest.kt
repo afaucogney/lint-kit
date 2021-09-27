@@ -7,7 +7,7 @@ import com.android.tools.lint.checks.infrastructure.TestLintTask.lint
 import fr.afaucogney.mobile.android.kit.lint.helper.callbackAbstractStub
 import fr.afaucogney.mobile.android.kit.lint.helper.liveDataStub
 import fr.afaucogney.mobile.android.kit.lint.helper.mutableLiveDataStub
-import fr.afaucogney.mobile.android.kit.lint.rules.contract.ViewModelMethodParameterIsCallbackDetector.Companion.ISSUE_VIEWMODEL_METHOD_PARAMETER_IS_CALLBACK
+import fr.afaucogney.mobile.android.kit.lint.rules.contract.ViewModelMethodParameterIsCallbackDetector.Companion.ISSUE
 import org.junit.Test
 
 @Suppress("UnstableApiUsage")
@@ -42,7 +42,7 @@ class ViewModelMethodParameterIsCallbackDetectorTest {
                 |""".trimMargin()
                 )
             )
-            .issues(ISSUE_VIEWMODEL_METHOD_PARAMETER_IS_CALLBACK)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(10)
     }
@@ -69,7 +69,7 @@ class ViewModelMethodParameterIsCallbackDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_VIEWMODEL_METHOD_PARAMETER_IS_CALLBACK)
+            .issues(ISSUE)
             .run()
             .expectClean()
     }

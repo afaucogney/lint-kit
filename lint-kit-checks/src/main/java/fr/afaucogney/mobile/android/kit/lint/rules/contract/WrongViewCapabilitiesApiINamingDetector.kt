@@ -6,7 +6,7 @@ import com.android.tools.lint.detector.api.Issue
 import fr.afaucogney.mobile.android.kit.lint.helper.viewCapabilitiesInterface
 import org.jetbrains.uast.UClass
 
-class ViewCapabilitiesApiIsNotCompliantDetector :
+class WrongViewCapabilitiesApiINamingDetector :
     AbstractFeatureContractViewApiIsNotCompliantDetector() {
 
     companion object {
@@ -23,7 +23,7 @@ class ViewCapabilitiesApiIsNotCompliantDetector :
             issueId,
             className,
             compliantMethods,
-            ViewCapabilitiesApiIsNotCompliantDetector::class.java
+            WrongViewCapabilitiesApiINamingDetector::class.java
         )
     }
 
@@ -31,9 +31,9 @@ class ViewCapabilitiesApiIsNotCompliantDetector :
     // SPECIALIZATION
     ///////////////////////////////////////////////////////////////////////////
 
-    override val issueId = ViewCapabilitiesApiIsNotCompliantDetector.issueId
-    override val className = ViewCapabilitiesApiIsNotCompliantDetector.className
-    override val compliantMethods = ViewCapabilitiesApiIsNotCompliantDetector.compliantMethods
+    override val issueId = WrongViewCapabilitiesApiINamingDetector.issueId
+    override val className = WrongViewCapabilitiesApiINamingDetector.className
+    override val compliantMethods = WrongViewCapabilitiesApiINamingDetector.compliantMethods
     override val issue: Issue = ISSUE
 
     override fun UClass.selectClasses(): UClass? {

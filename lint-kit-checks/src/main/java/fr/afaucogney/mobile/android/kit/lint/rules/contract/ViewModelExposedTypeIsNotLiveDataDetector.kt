@@ -23,7 +23,7 @@ class ViewModelExposedTypeIsNotLiveDataDetector : Detector(), SourceCodeScanner 
     ///////////////////////////////////////////////////////////////////////////
 
     companion object {
-        val ISSUE_VIEWMODEL_EXPOSED_TYPE_ARE_NOT_LIVEDATA = Issue.create(
+        val ISSUE = Issue.create(
             "ViewModelMethodDoesntReturnLiveData",
             "Feature ViewModel Contract Interface should only expose method that return LiveData.",
             "Contract should not expose other than LiveData to prevent memory leaks between ViewModel" +
@@ -100,7 +100,7 @@ class ViewModelExposedTypeIsNotLiveDataDetector : Detector(), SourceCodeScanner 
 
         private fun reportIssue(node: UClass, method: UMethod, returnType: String) {
             context.report(
-                ISSUE_VIEWMODEL_EXPOSED_TYPE_ARE_NOT_LIVEDATA,
+                ISSUE,
                 node,
                 context.getNameLocation(method),
                 "The ViewModel interface method should only return LiveData, not $returnType type"

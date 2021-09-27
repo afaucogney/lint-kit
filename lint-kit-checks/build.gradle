@@ -20,18 +20,12 @@ dependencies {
     compileOnly "com.android.tools.lint:lint-checks:$lintVersion"
     compileOnly "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-//    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
-//    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 
     // Test
     testImplementation "com.android.tools:testutils:$lintVersion"
     testImplementation "com.android.tools.lint:lint-tests:$lintVersion"
 
-//    implementation 'com.vanniktech:lint-rules-android-lint:0.17.0'
-//    implementation 'com.vanniktech:lint-rules-rxjava2-lint:0.17.0'
+    // External lint libraries
+    compileOnly 'com.vanniktech:lint-rules-android-lint:0.17.0'
+    compileOnly 'com.vanniktech:lint-rules-rxjava2-lint:0.17.0'
 }
-
-//tasks.withType<KotlinCompile> {
-//    kotlinOptions.jvmTarget = "11"
-//}
-

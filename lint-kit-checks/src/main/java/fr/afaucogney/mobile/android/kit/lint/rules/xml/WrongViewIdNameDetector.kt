@@ -26,7 +26,7 @@ class WrongViewIdNameDetector : LayoutDetector() {
             "The id name must start with View name's uppercase letters in lower case + _ " +
                     "and then the functional identification."
 
-        val ISSUE_WRONG_VIEW_ID_NAME = Issue.create(
+        val ISSUE = Issue.create(
             id = ISSUE_ID,
             briefDescription = ISSUE_DESCRIPTION,
             explanation = ISSUE_EXPLANATION,
@@ -61,7 +61,7 @@ class WrongViewIdNameDetector : LayoutDetector() {
         val tagArchronyme = tagName.filter { it.isUpperCase() }.lowercase()
         if (!id.startsWith(tagArchronyme + "_")) {
             context.report(
-                ISSUE_WRONG_VIEW_ID_NAME,
+                ISSUE,
                 attribute,
                 context.getLocation(attribute),
                 ISSUE_DESCRIPTION

@@ -6,7 +6,7 @@ import com.android.tools.lint.detector.api.Issue
 import fr.afaucogney.mobile.android.kit.lint.helper.viewModelInterface
 import org.jetbrains.uast.UClass
 
-class ViewModelApiIsNotCompliantDetector :
+class WrongViewModelApiNamingDetector :
     AbstractFeatureContractViewApiIsNotCompliantDetector() {
 
     companion object {
@@ -23,7 +23,7 @@ class ViewModelApiIsNotCompliantDetector :
             issueId,
             className,
             compliantMethods,
-            ViewModelApiIsNotCompliantDetector::class.java
+            WrongViewModelApiNamingDetector::class.java
         )
     }
 
@@ -31,9 +31,9 @@ class ViewModelApiIsNotCompliantDetector :
     // SPECIALIZATION
     ///////////////////////////////////////////////////////////////////////////
 
-    override val issueId = ViewModelApiIsNotCompliantDetector.issueId
-    override val className = ViewModelApiIsNotCompliantDetector.className
-    override val compliantMethods = ViewModelApiIsNotCompliantDetector.compliantMethods
+    override val issueId = WrongViewModelApiNamingDetector.issueId
+    override val className = WrongViewModelApiNamingDetector.className
+    override val compliantMethods = WrongViewModelApiNamingDetector.compliantMethods
     override val issue: Issue = ISSUE
 
     override fun UClass.selectClasses(): UClass? {

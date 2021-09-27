@@ -6,7 +6,7 @@ import com.android.tools.lint.checks.infrastructure.TestFiles.kt
 import com.android.tools.lint.checks.infrastructure.TestLintTask.lint
 import fr.afaucogney.mobile.android.kit.lint.helper.liveDataStub
 import fr.afaucogney.mobile.android.kit.lint.helper.mutableLiveDataStub
-import fr.afaucogney.mobile.android.kit.lint.rules.contract.ViewModelExposedTypeIsNotLiveDataDetector.Companion.ISSUE_VIEWMODEL_EXPOSED_TYPE_ARE_NOT_LIVEDATA
+import fr.afaucogney.mobile.android.kit.lint.rules.contract.ViewModelExposedTypeIsNotLiveDataDetector.Companion.ISSUE
 import org.junit.Test
 
 @Suppress("UnstableApiUsage")
@@ -32,7 +32,7 @@ class ViewModelExposedTypeIsNotLiveDataDetectorTest {
                 |""".trimMargin()
                 )
             )
-            .issues(ISSUE_VIEWMODEL_EXPOSED_TYPE_ARE_NOT_LIVEDATA)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(1)
     }
@@ -56,7 +56,7 @@ class ViewModelExposedTypeIsNotLiveDataDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_VIEWMODEL_EXPOSED_TYPE_ARE_NOT_LIVEDATA)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(1)
     }
@@ -81,7 +81,7 @@ class ViewModelExposedTypeIsNotLiveDataDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_VIEWMODEL_EXPOSED_TYPE_ARE_NOT_LIVEDATA)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(1)
     }
@@ -105,7 +105,7 @@ class ViewModelExposedTypeIsNotLiveDataDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_VIEWMODEL_EXPOSED_TYPE_ARE_NOT_LIVEDATA)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(1)
     }
@@ -129,7 +129,7 @@ class ViewModelExposedTypeIsNotLiveDataDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_VIEWMODEL_EXPOSED_TYPE_ARE_NOT_LIVEDATA)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(1)
     }
@@ -154,7 +154,7 @@ class ViewModelExposedTypeIsNotLiveDataDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_VIEWMODEL_EXPOSED_TYPE_ARE_NOT_LIVEDATA)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(2)
     }
@@ -179,7 +179,7 @@ class ViewModelExposedTypeIsNotLiveDataDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_VIEWMODEL_EXPOSED_TYPE_ARE_NOT_LIVEDATA)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(2)
     }
@@ -210,7 +210,7 @@ class ViewModelExposedTypeIsNotLiveDataDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_VIEWMODEL_EXPOSED_TYPE_ARE_NOT_LIVEDATA)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(4)
     }
@@ -235,7 +235,7 @@ class ViewModelExposedTypeIsNotLiveDataDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_VIEWMODEL_EXPOSED_TYPE_ARE_NOT_LIVEDATA)
+            .issues(ISSUE)
             .run()
             .expectClean()
     }

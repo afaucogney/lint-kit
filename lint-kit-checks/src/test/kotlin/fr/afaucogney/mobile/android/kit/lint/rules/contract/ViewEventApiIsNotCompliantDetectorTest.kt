@@ -30,7 +30,7 @@ class ViewEventApiIsNotCompliantDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ViewEventApiIsNotCompliantDetector.ISSUE)
+            .issues(WrongViewEventApiINamingDetector.ISSUE)
             .run()
             .expectClean()
     }
@@ -58,7 +58,7 @@ class ViewEventApiIsNotCompliantDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ViewEventApiIsNotCompliantDetector.ISSUE)
+            .issues(WrongViewEventApiINamingDetector.ISSUE)
             .run()
             .expectErrorCount(5)
     }

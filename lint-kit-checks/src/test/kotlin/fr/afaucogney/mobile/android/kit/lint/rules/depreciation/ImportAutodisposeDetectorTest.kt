@@ -28,7 +28,7 @@ class ImportAutodisposeDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ImportAutodisposeDetector.ISSUE_AUTODISPOSE_USAGE)
+            .issues(AutodisposeStillImportedDetector.ISSUE)
             .run()
             .expectClean()
     }
@@ -54,7 +54,7 @@ class ImportAutodisposeDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ImportAutodisposeDetector.ISSUE_AUTODISPOSE_USAGE)
+            .issues(AutodisposeStillImportedDetector.ISSUE)
             .allowCompilationErrors()
             .run()
             .expectErrorCount(1)

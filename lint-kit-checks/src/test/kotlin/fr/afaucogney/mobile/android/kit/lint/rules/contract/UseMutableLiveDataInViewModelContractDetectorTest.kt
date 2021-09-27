@@ -6,7 +6,7 @@ import com.android.tools.lint.checks.infrastructure.TestFiles.kt
 import com.android.tools.lint.checks.infrastructure.TestLintTask.lint
 import fr.afaucogney.mobile.android.kit.lint.helper.liveDataStub
 import fr.afaucogney.mobile.android.kit.lint.helper.mutableLiveDataStub
-import fr.afaucogney.mobile.android.kit.lint.rules.contract.UseMutableLiveDataInViewModelContractDetector.Companion.ISSUE_MUTABLELIVEDATA_IN_FEATURE_CONTRACT
+import fr.afaucogney.mobile.android.kit.lint.rules.contract.ViewModelContractExposeMutableLiveDataDetector.Companion.ISSUE
 import org.junit.Test
 
 class UseMutableLiveDataInViewModelContractDetectorTest {
@@ -29,7 +29,7 @@ class UseMutableLiveDataInViewModelContractDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_MUTABLELIVEDATA_IN_FEATURE_CONTRACT)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(1)
     }
@@ -53,7 +53,7 @@ class UseMutableLiveDataInViewModelContractDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_MUTABLELIVEDATA_IN_FEATURE_CONTRACT)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(2)
     }
@@ -78,7 +78,7 @@ class UseMutableLiveDataInViewModelContractDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_MUTABLELIVEDATA_IN_FEATURE_CONTRACT)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(2)
     }
@@ -104,7 +104,7 @@ class UseMutableLiveDataInViewModelContractDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_MUTABLELIVEDATA_IN_FEATURE_CONTRACT)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(1)
     }
@@ -128,7 +128,7 @@ class UseMutableLiveDataInViewModelContractDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_MUTABLELIVEDATA_IN_FEATURE_CONTRACT)
+            .issues(ISSUE)
             .run()
             .expectClean()
     }

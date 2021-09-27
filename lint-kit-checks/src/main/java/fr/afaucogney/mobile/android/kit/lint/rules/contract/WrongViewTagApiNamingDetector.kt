@@ -3,25 +3,24 @@
 package fr.afaucogney.mobile.android.kit.lint.rules.contract
 
 import com.android.tools.lint.detector.api.Issue
-import fr.afaucogney.mobile.android.kit.lint.helper.viewEventInterface
-import fr.afaucogney.mobile.android.kit.lint.helper.viewNavigationInterface
+import fr.afaucogney.mobile.android.kit.lint.helper.viewTagInterface
 import org.jetbrains.uast.UClass
 
-class ViewEventApiIsNotCompliantDetector :
+class WrongViewTagApiNamingDetector :
     AbstractFeatureContractViewApiIsNotCompliantDetector() {
 
     companion object {
-        private const val issueId = "ViewEventContractApiIsNotCompliant"
-        private const val className = "ViewEvent"
+        private const val issueId = "ViewTagContractApiIsNotCompliant"
+        private const val className = "ViewTag"
         private val compliantMethods = listOf(
-            "on",
+            "send",
         )
 
         val ISSUE = buildIssue(
             issueId,
             className,
             compliantMethods,
-            ViewEventApiIsNotCompliantDetector::class.java
+            WrongViewTagApiNamingDetector::class.java
         )
     }
 
@@ -29,12 +28,12 @@ class ViewEventApiIsNotCompliantDetector :
     // SPECIALIZATION
     ///////////////////////////////////////////////////////////////////////////
 
-    override val issueId = ViewEventApiIsNotCompliantDetector.issueId
-    override val className = ViewEventApiIsNotCompliantDetector.className
-    override val compliantMethods = ViewEventApiIsNotCompliantDetector.compliantMethods
+    override val issueId = WrongViewTagApiNamingDetector.issueId
+    override val className = WrongViewTagApiNamingDetector.className
+    override val compliantMethods = WrongViewTagApiNamingDetector.compliantMethods
     override val issue: Issue = ISSUE
 
     override fun UClass.selectClasses(): UClass? {
-        return this.viewEventInterface
+        return this.viewTagInterface
     }
 }

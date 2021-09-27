@@ -13,14 +13,14 @@ import com.android.tools.lint.detector.api.Severity
 import org.jetbrains.uast.UFile
 import java.util.EnumSet
 
-class ImportAutodisposeDetector : Detector(), Detector.UastScanner {
+class AutodisposeStillImportedDetector : Detector(), Detector.UastScanner {
 
     ///////////////////////////////////////////////////////////////////////////
     // CONST
     ///////////////////////////////////////////////////////////////////////////
 
     companion object {
-        val ISSUE_AUTODISPOSE_USAGE = Issue.create(
+        val ISSUE = Issue.create(
             "AutodisposeIsDeprecated",
             "Autodispose must not be used anymore.",
             "Because bindAndSub rx helpers is sufficient and simpler" +
@@ -29,7 +29,7 @@ class ImportAutodisposeDetector : Detector(), Detector.UastScanner {
             9,
             Severity.ERROR,
             Implementation(
-                ImportAutodisposeDetector::class.java,
+                AutodisposeStillImportedDetector::class.java,
                 EnumSet.of(Scope.JAVA_FILE, Scope.TEST_SOURCES)
             )
         )
@@ -57,7 +57,7 @@ class ImportAutodisposeDetector : Detector(), Detector.UastScanner {
                 import.importReference?.asRenderString()?.let {
                     if (it.contains("autodispose")) {
                         context.report(
-                            ISSUE_AUTODISPOSE_USAGE,
+                            ISSUE,
                             node,
                             context.getNameLocation(node),
                             "Autodispose shall not be used, use bindAndSub instead"

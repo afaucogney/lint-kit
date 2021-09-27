@@ -31,7 +31,7 @@ class ViewCapabilitiesApiIsNotCompliantDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ViewCapabilitiesApiIsNotCompliantDetector.ISSUE)
+            .issues(WrongViewCapabilitiesApiINamingDetector.ISSUE)
             .run()
             .expectClean()
     }
@@ -59,7 +59,7 @@ class ViewCapabilitiesApiIsNotCompliantDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ViewCapabilitiesApiIsNotCompliantDetector.ISSUE)
+            .issues(WrongViewCapabilitiesApiINamingDetector.ISSUE)
             .run()
             .expectErrorCount(5)
     }

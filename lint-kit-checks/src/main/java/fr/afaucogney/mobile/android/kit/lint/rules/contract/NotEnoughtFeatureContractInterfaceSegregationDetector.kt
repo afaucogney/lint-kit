@@ -15,7 +15,7 @@ import fr.afaucogney.mobile.android.kit.lint.helper.isFeatureContract
 import org.jetbrains.uast.UClass
 import java.util.EnumSet
 
-class WellSegregationOfFeatureContractInterfaceDetector : Detector(), SourceCodeScanner {
+class NotEnoughtFeatureContractInterfaceSegregationDetector : Detector(), SourceCodeScanner {
 
     ///////////////////////////////////////////////////////////////////////////
     // CONST
@@ -30,7 +30,7 @@ class WellSegregationOfFeatureContractInterfaceDetector : Detector(), SourceCode
             5,
             Severity.ERROR,
             Implementation(
-                WellSegregationOfFeatureContractInterfaceDetector::class.java,
+                NotEnoughtFeatureContractInterfaceSegregationDetector::class.java,
                 EnumSet.of(Scope.JAVA_FILE, Scope.TEST_SOURCES)
             )
         )

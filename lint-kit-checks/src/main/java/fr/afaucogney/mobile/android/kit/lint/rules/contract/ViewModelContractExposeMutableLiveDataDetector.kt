@@ -15,14 +15,14 @@ import fr.afaucogney.mobile.android.kit.lint.helper.isFeatureContract
 import org.jetbrains.uast.UClass
 import java.util.EnumSet
 
-class UseMutableLiveDataInViewModelContractDetector : Detector(), SourceCodeScanner {
+class ViewModelContractExposeMutableLiveDataDetector : Detector(), SourceCodeScanner {
 
     ///////////////////////////////////////////////////////////////////////////
     // CONST
     ///////////////////////////////////////////////////////////////////////////
 
     companion object {
-        val ISSUE_MUTABLELIVEDATA_IN_FEATURE_CONTRACT = Issue.create(
+        val ISSUE = Issue.create(
             "MutableLiveData",
             "Feature ViewModel Contract Interface should only expose LiveData.",
             "Contract should not expose MutableLiveData but only LiveData",
@@ -30,7 +30,7 @@ class UseMutableLiveDataInViewModelContractDetector : Detector(), SourceCodeScan
             8,
             Severity.ERROR,
             Implementation(
-                UseMutableLiveDataInViewModelContractDetector::class.java,
+                ViewModelContractExposeMutableLiveDataDetector::class.java,
                 EnumSet.of(Scope.JAVA_FILE, Scope.TEST_SOURCES)
             )
         )
@@ -63,7 +63,7 @@ class UseMutableLiveDataInViewModelContractDetector : Detector(), SourceCodeScan
                             ) == true
                         ) {
                             context.report(
-                                ISSUE_MUTABLELIVEDATA_IN_FEATURE_CONTRACT,
+                                ISSUE,
                                 node,
                                 context.getNameLocation(method),
                                 "The ViewModel interface method should only return LiveData (immutable)"
