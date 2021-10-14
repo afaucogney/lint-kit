@@ -33,17 +33,16 @@ import com.vanniktech.lintrules.android.ISSUE_WRONG_VIEW_ID_FORMAT
 import com.vanniktech.lintrules.android.ISSUE_XML_SPACING
 import com.vanniktech.lintrules.rxjava2.ISSUE_DEFAULT_SCHEDULER
 import com.vanniktech.lintrules.rxjava2.ISSUE_METHOD_MISSING_CHECK_RETURN_VALUE
-import com.vanniktech.lintrules.rxjava2.RxJava2MissingCompositeDisposableClearDetector
+import fr.afaucogney.mobile.android.kit.lint.rules.contract.NotEnoughtFeatureContractInterfaceSegregationDetector
 import fr.afaucogney.mobile.android.kit.lint.rules.contract.ViewModelContractExposeMutableLiveDataDetector
+import fr.afaucogney.mobile.android.kit.lint.rules.contract.ViewModelExposedTypeIsNotLiveDataDetector
+import fr.afaucogney.mobile.android.kit.lint.rules.contract.ViewModelMethodParameterIsCallbackDetector
+import fr.afaucogney.mobile.android.kit.lint.rules.contract.WrongFeatureContractNamingDetector
 import fr.afaucogney.mobile.android.kit.lint.rules.contract.WrongViewCapabilitiesApiINamingDetector
 import fr.afaucogney.mobile.android.kit.lint.rules.contract.WrongViewEventApiINamingDetector
 import fr.afaucogney.mobile.android.kit.lint.rules.contract.WrongViewModelApiNamingDetector
-import fr.afaucogney.mobile.android.kit.lint.rules.contract.ViewModelExposedTypeIsNotLiveDataDetector
-import fr.afaucogney.mobile.android.kit.lint.rules.contract.ViewModelMethodParameterIsCallbackDetector
 import fr.afaucogney.mobile.android.kit.lint.rules.contract.WrongViewNavigationApiINamingDetector
 import fr.afaucogney.mobile.android.kit.lint.rules.contract.WrongViewTagApiNamingDetector
-import fr.afaucogney.mobile.android.kit.lint.rules.contract.NotEnoughtFeatureContractInterfaceSegregationDetector
-import fr.afaucogney.mobile.android.kit.lint.rules.contract.WrongFeatureContractNamingDetector
 import fr.afaucogney.mobile.android.kit.lint.rules.depreciation.AutodisposeStillImportedDetector
 import fr.afaucogney.mobile.android.kit.lint.rules.xml.WrongViewIdNameDetector
 
@@ -63,13 +62,16 @@ class IssueRegistry : IssueRegistry() {
     override val issues: List<Issue>
         get() = listOf(
             // Xml Naming
-            // WrongViewIdNameDetector.ISSUE,
+            WrongViewIdNameDetector.ISSUE,
+
             // Depreciation
             AutodisposeStillImportedDetector.ISSUE,
+
             // ViewModel only LiveData
             ViewModelContractExposeMutableLiveDataDetector.ISSUE,
             ViewModelMethodParameterIsCallbackDetector.ISSUE,
             ViewModelExposedTypeIsNotLiveDataDetector.ISSUE,
+
             // Feature Contract Api naming
             WrongFeatureContractNamingDetector.ISSUE,
             WrongViewCapabilitiesApiINamingDetector.ISSUE,
@@ -77,7 +79,8 @@ class IssueRegistry : IssueRegistry() {
             WrongViewNavigationApiINamingDetector.ISSUE,
             WrongViewEventApiINamingDetector.ISSUE,
             WrongViewTagApiNamingDetector.ISSUE,
-            NotEnoughtFeatureContractInterfaceSegregationDetector.ISSUE_FEATURE_CONTRACT_SEGREGATION,
+            NotEnoughtFeatureContractInterfaceSegregationDetector.ISSUE,
+
             // Architecture
 
             // Android-Lint

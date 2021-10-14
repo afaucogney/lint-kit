@@ -22,7 +22,7 @@ class NotEnoughtFeatureContractInterfaceSegregationDetector : Detector(), Source
     ///////////////////////////////////////////////////////////////////////////
 
     companion object {
-        val ISSUE_FEATURE_CONTRACT_SEGREGATION = Issue.create(
+        val ISSUE = Issue.create(
             "FeatureContractInterfaceSegregation",
             "Feature Contract Interface should be refined enougth",
             "Interface should be refined with ViewCapabilities, ViewModel, ViewNavigation, ViewTag",
@@ -58,7 +58,7 @@ class NotEnoughtFeatureContractInterfaceSegregationDetector : Detector(), Source
                 node.innerClasses.map { it.name }.filterNotNull().let {
                     if (it.contains("ViewModel").not()) {
                         context.report(
-                            ISSUE_FEATURE_CONTRACT_SEGREGATION,
+                            ISSUE,
                             node,
                             context.getNameLocation(node),
                             "ViewModel should be defined in Feature Contract Interface, even void"
@@ -66,7 +66,7 @@ class NotEnoughtFeatureContractInterfaceSegregationDetector : Detector(), Source
                     }
                     if (it.contains("ViewEvent").not()) {
                         context.report(
-                            ISSUE_FEATURE_CONTRACT_SEGREGATION,
+                            ISSUE,
                             node,
                             context.getNameLocation(node),
                             "ViewEvent should be defined in Feature Contract Interface, even void"
@@ -74,7 +74,7 @@ class NotEnoughtFeatureContractInterfaceSegregationDetector : Detector(), Source
                     }
                     if (it.contains("ViewCapabilities").not()) {
                         context.report(
-                            ISSUE_FEATURE_CONTRACT_SEGREGATION,
+                            ISSUE,
                             node,
                             context.getNameLocation(node),
                             "ViewCapabilities should be defined in Feature Contract Interface, even void"
@@ -82,7 +82,7 @@ class NotEnoughtFeatureContractInterfaceSegregationDetector : Detector(), Source
                     }
                     if (it.contains("ViewTag").not()) {
                         context.report(
-                            ISSUE_FEATURE_CONTRACT_SEGREGATION,
+                            ISSUE,
                             node,
                             context.getNameLocation(node),
                             "ViewTag should be defined in Feature Contract Interface, even void"
@@ -90,7 +90,7 @@ class NotEnoughtFeatureContractInterfaceSegregationDetector : Detector(), Source
                     }
                     if (it.contains("ViewNavigation").not()) {
                         context.report(
-                            ISSUE_FEATURE_CONTRACT_SEGREGATION,
+                            ISSUE,
                             node,
                             context.getNameLocation(node),
                             "ViewNavigation should be defined in Feature Contract Interface, even void"

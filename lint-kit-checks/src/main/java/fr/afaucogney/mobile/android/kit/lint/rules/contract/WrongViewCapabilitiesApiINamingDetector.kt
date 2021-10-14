@@ -16,7 +16,9 @@ class WrongViewCapabilitiesApiINamingDetector :
             "show",
             "hide",
             "update",
+            "start",
             "dismiss",
+            "setup",
         )
 
         val ISSUE = buildIssue(

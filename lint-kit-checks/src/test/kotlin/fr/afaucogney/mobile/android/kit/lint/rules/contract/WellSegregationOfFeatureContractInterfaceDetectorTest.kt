@@ -4,7 +4,7 @@ package fr.afaucogney.mobile.android.kit.lint.rules.contract
 
 import com.android.tools.lint.checks.infrastructure.TestFiles.kt
 import com.android.tools.lint.checks.infrastructure.TestLintTask
-import fr.afaucogney.mobile.android.kit.lint.rules.contract.NotEnoughtFeatureContractInterfaceSegregationDetector.Companion.ISSUE_FEATURE_CONTRACT_SEGREGATION
+import fr.afaucogney.mobile.android.kit.lint.rules.contract.NotEnoughtFeatureContractInterfaceSegregationDetector.Companion.ISSUE
 import org.junit.Test
 
 class WellSegregationOfFeatureContractInterfaceDetectorTest {
@@ -37,7 +37,7 @@ class WellSegregationOfFeatureContractInterfaceDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_FEATURE_CONTRACT_SEGREGATION)
+            .issues(ISSUE)
             .run()
             .expectClean()
     }
@@ -70,7 +70,7 @@ class WellSegregationOfFeatureContractInterfaceDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_FEATURE_CONTRACT_SEGREGATION)
+            .issues(ISSUE)
             .run()
             .expectClean()
     }
@@ -100,7 +100,7 @@ class WellSegregationOfFeatureContractInterfaceDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_FEATURE_CONTRACT_SEGREGATION)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(1)
     }
@@ -130,7 +130,7 @@ class WellSegregationOfFeatureContractInterfaceDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_FEATURE_CONTRACT_SEGREGATION)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(1)
     }
@@ -160,7 +160,7 @@ class WellSegregationOfFeatureContractInterfaceDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_FEATURE_CONTRACT_SEGREGATION)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(1)
     }
@@ -190,7 +190,7 @@ class WellSegregationOfFeatureContractInterfaceDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_FEATURE_CONTRACT_SEGREGATION)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(1)
     }
@@ -220,7 +220,7 @@ class WellSegregationOfFeatureContractInterfaceDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_FEATURE_CONTRACT_SEGREGATION)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(1)
     }
@@ -247,7 +247,7 @@ class WellSegregationOfFeatureContractInterfaceDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_FEATURE_CONTRACT_SEGREGATION)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(2)
     }
@@ -271,7 +271,7 @@ class WellSegregationOfFeatureContractInterfaceDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_FEATURE_CONTRACT_SEGREGATION)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(3)
     }
@@ -292,7 +292,7 @@ class WellSegregationOfFeatureContractInterfaceDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_FEATURE_CONTRACT_SEGREGATION)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(4)
     }
@@ -310,7 +310,7 @@ class WellSegregationOfFeatureContractInterfaceDetectorTest {
                 |}""".trimMargin()
                 )
             )
-            .issues(ISSUE_FEATURE_CONTRACT_SEGREGATION)
+            .issues(ISSUE)
             .run()
             .expectErrorCount(5)
     }
