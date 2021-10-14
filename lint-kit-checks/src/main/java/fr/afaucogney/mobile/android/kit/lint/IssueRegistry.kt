@@ -124,8 +124,6 @@ class IssueRegistry : IssueRegistry() {
             // Performance
             ISSUE_WRONG_GLOBAL_ICON_COLOR,
 
-
-
             // RxJava Vannitech
             ISSUE_METHOD_MISSING_CHECK_RETURN_VALUE,
             ISSUE_DEFAULT_SCHEDULER,

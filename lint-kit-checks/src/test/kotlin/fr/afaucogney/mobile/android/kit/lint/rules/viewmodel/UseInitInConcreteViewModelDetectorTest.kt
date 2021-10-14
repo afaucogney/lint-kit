@@ -8,7 +8,7 @@ import fr.afaucogney.mobile.android.kit.lint.helper.fakeBaseViewModelStub
 import fr.afaucogney.mobile.android.kit.lint.rules.viewmodel.UseInitInConcreteViewModelDetector.Companion.ISSUE_INIT_IN_VIEWMODEL
 import org.junit.Test
 
-class InitUsageInConcreteViewModelDetectorTest {
+class UseInitInConcreteViewModelDetectorTest {
 
     @Test
     fun testSuccessNoViewModel() {

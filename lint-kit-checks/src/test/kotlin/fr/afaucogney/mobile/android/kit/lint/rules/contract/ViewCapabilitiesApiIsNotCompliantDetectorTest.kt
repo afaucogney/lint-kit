@@ -23,12 +23,12 @@ class ViewCapabilitiesApiIsNotCompliantDetectorTest {
                 |
                 |interface IMyFeatureContract {
                 |   interface ViewCapabilities {
-                |       fun show()
-                |       fun hide(activity : Activity)
-                |       fun update()
-                |       fun dismiss()
+                |       fun showWidget()
+                |       fun updateList()
+                |       fun dismissDialog()
                 |   }
-                |}""".trimMargin()
+                |}
+                |""".trimMargin()
                 )
             )
             .issues(WrongViewCapabilitiesApiINamingDetector.ISSUE)
