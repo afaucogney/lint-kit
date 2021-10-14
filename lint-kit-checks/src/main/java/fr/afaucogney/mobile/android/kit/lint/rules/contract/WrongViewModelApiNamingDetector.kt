@@ -12,7 +12,7 @@ class WrongViewModelApiNamingDetector :
     companion object {
         private const val issueId = "ViewModelContractApiIsNotCompliant"
         private const val className = "ViewModel"
-        private val compliantMethods = listOf(
+        private val compliantMethodPrefixes = listOf(
             "request",
             "start",
             "observe",
@@ -22,7 +22,7 @@ class WrongViewModelApiNamingDetector :
         val ISSUE = buildIssue(
             issueId,
             className,
-            compliantMethods,
+            compliantMethodPrefixes,
             WrongViewModelApiNamingDetector::class.java
         )
     }
@@ -33,7 +33,7 @@ class WrongViewModelApiNamingDetector :
 
     override val issueId = WrongViewModelApiNamingDetector.issueId
     override val className = WrongViewModelApiNamingDetector.className
-    override val compliantMethods = WrongViewModelApiNamingDetector.compliantMethods
+    override val compliantMethods = WrongViewModelApiNamingDetector.compliantMethodPrefixes
     override val issue: Issue = ISSUE
 
     override fun UClass.selectClasses(): UClass? {

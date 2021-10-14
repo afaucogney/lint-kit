@@ -12,7 +12,7 @@ class WrongViewCapabilitiesApiINamingDetector :
     companion object {
         private const val issueId = "ViewCapabilitiesContractApiIsNotCompliant"
         private const val className = "ViewCapabilities"
-        private val compliantMethods = listOf(
+        private val compliantMethodPrefixes = listOf(
             "show",
             "hide",
             "update",
@@ -22,7 +22,7 @@ class WrongViewCapabilitiesApiINamingDetector :
         val ISSUE = buildIssue(
             issueId,
             className,
-            compliantMethods,
+            compliantMethodPrefixes,
             WrongViewCapabilitiesApiINamingDetector::class.java
         )
     }
@@ -33,7 +33,7 @@ class WrongViewCapabilitiesApiINamingDetector :
 
     override val issueId = WrongViewCapabilitiesApiINamingDetector.issueId
     override val className = WrongViewCapabilitiesApiINamingDetector.className
-    override val compliantMethods = WrongViewCapabilitiesApiINamingDetector.compliantMethods
+    override val compliantMethods = WrongViewCapabilitiesApiINamingDetector.compliantMethodPrefixes
     override val issue: Issue = ISSUE
 
     override fun UClass.selectClasses(): UClass? {

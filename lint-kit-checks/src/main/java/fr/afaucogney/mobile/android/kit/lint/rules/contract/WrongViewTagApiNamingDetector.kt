@@ -12,14 +12,14 @@ class WrongViewTagApiNamingDetector :
     companion object {
         private const val issueId = "ViewTagContractApiIsNotCompliant"
         private const val className = "ViewTag"
-        private val compliantMethods = listOf(
+        private val compliantMethodPrefixes = listOf(
             "send",
         )
 
         val ISSUE = buildIssue(
             issueId,
             className,
-            compliantMethods,
+            compliantMethodPrefixes,
             WrongViewTagApiNamingDetector::class.java
         )
     }
@@ -30,7 +30,7 @@ class WrongViewTagApiNamingDetector :
 
     override val issueId = WrongViewTagApiNamingDetector.issueId
     override val className = WrongViewTagApiNamingDetector.className
-    override val compliantMethods = WrongViewTagApiNamingDetector.compliantMethods
+    override val compliantMethods = WrongViewTagApiNamingDetector.compliantMethodPrefixes
     override val issue: Issue = ISSUE
 
     override fun UClass.selectClasses(): UClass? {
