@@ -33,6 +33,7 @@ import com.vanniktech.lintrules.android.ISSUE_WRONG_VIEW_ID_FORMAT
 import com.vanniktech.lintrules.android.ISSUE_XML_SPACING
 import com.vanniktech.lintrules.rxjava2.ISSUE_DEFAULT_SCHEDULER
 import com.vanniktech.lintrules.rxjava2.ISSUE_METHOD_MISSING_CHECK_RETURN_VALUE
+import fr.afaucogney.mobile.android.kit.lint.rules.common.WellSeparatorDetector
 import fr.afaucogney.mobile.android.kit.lint.rules.contract.NotEnoughtFeatureContractInterfaceSegregationDetector
 import fr.afaucogney.mobile.android.kit.lint.rules.contract.ViewModelContractExposeMutableLiveDataDetector
 import fr.afaucogney.mobile.android.kit.lint.rules.contract.ViewModelExposedTypeIsNotLiveDataDetector
@@ -80,6 +81,9 @@ class IssueRegistry : IssueRegistry() {
             WrongViewEventApiINamingDetector.ISSUE,
             WrongViewTagApiNamingDetector.ISSUE,
             NotEnoughtFeatureContractInterfaceSegregationDetector.ISSUE,
+
+            // Common
+            WellSeparatorDetector.ISSUE,
 
             // Architecture
 
