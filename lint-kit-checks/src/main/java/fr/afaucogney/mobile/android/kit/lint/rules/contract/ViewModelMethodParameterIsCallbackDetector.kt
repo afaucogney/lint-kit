@@ -62,11 +62,11 @@ class ViewModelMethodParameterIsCallbackDetector : Detector(), SourceCodeScanner
                         method.parameters.forEach { param ->
                             when {
                                 // KO if param name contains callback
-                                param.name?.contains("callback", true) == true -> {
+                                param.name?.toString()?.contains("callback", true) ?: false -> {
                                     reportIssue(
                                         node,
                                         method,
-                                        "callback type : ${param.type}"
+                                        "callback type : ${param.name}"
                                     )
                                 }
                                 // KO if param type name contains callback
@@ -82,11 +82,11 @@ class ViewModelMethodParameterIsCallbackDetector : Detector(), SourceCodeScanner
                                     reportIssue(
                                         node,
                                         method,
-                                        "function type : ${param.name}"
+                                        "function type : ${param.type}"
                                     )
                                 }
                                 // KO if param name contains Lambda
-                                param.name?.toString().contains("function", true) -> {
+                                param.name?.toString()?.contains("function", true) ?: false -> {
                                     reportIssue(
                                         node,
                                         method,
