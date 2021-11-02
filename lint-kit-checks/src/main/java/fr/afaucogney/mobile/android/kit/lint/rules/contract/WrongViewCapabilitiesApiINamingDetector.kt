@@ -35,7 +35,7 @@ class WrongViewCapabilitiesApiINamingDetector :
 
     override val issueId = WrongViewCapabilitiesApiINamingDetector.issueId
     override val className = WrongViewCapabilitiesApiINamingDetector.className
-    override val compliantMethods = WrongViewCapabilitiesApiINamingDetector.compliantMethodPrefixes
+    override val compliantMethods = compliantMethodPrefixes
     override val issue: Issue = ISSUE
 
     override fun UClass.selectClasses(): UClass? {

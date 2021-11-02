@@ -153,7 +153,7 @@ class WrongActivityViewModelNamingDetector : Detector(), Detector.UastScanner {
                                     .split(">")[0]
                             }
                         }
-                } ?: "prout"
+                } ?: "viewModelProviderModelClass"
         }
 
         private fun extractViewModelProviderContext(
@@ -169,7 +169,7 @@ class WrongActivityViewModelNamingDetector : Detector(), Detector.UastScanner {
                         .split("=")[1]
                         .trim()
                         .replaceThisByContainingClass(node)
-                } ?: "shit"
+                } ?: "viewModelProviderContext"
         }
 
         private fun reportIssueIfNecessary(

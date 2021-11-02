@@ -33,8 +33,8 @@ abstract class AbstractFeatureContractViewApiIsNotCompliantDetector :
             return Issue.create(
                 issueId,
                 "$className Feature Contract Interface should only expose compliant " +
-                        "name method.",
-                "$className Contract should only expose compliant methods name : " +
+                        "method names.",
+                "$className Contract should only expose compliant method names : " +
                         "${compliantMethods.joinToString(", ")} in its Api.",
                 Category.COMPLIANCE,
                 5,

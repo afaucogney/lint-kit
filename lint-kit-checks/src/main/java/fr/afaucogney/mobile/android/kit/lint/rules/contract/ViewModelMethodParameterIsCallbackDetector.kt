@@ -19,10 +19,6 @@ import java.util.EnumSet
 
 class ViewModelMethodParameterIsCallbackDetector : Detector(), SourceCodeScanner {
 
-    ///////////////////////////////////////////////////////////////////////////
-    // CONST
-    ///////////////////////////////////////////////////////////////////////////
-
     companion object {
         val ISSUE = Issue.create(
             "ViewModelMethodParameterIsCallback",
@@ -81,7 +77,7 @@ class ViewModelMethodParameterIsCallbackDetector : Detector(), SourceCodeScanner
                                         "callback type : ${param.type}"
                                     )
                                 }
-                                // KO if Lambda
+                                // KO if param type contains Lambda
                                 param.type.toString().contains("function", true) -> {
                                     reportIssue(
                                         node,
@@ -89,11 +85,12 @@ class ViewModelMethodParameterIsCallbackDetector : Detector(), SourceCodeScanner
                                         "function type : ${param.name}"
                                     )
                                 }
-                                param.type.toString().contains("function", true) -> {
+                                // KO if param name contains Lambda
+                                param.name?.toString().contains("function", true) -> {
                                     reportIssue(
                                         node,
                                         method,
-                                        "function type : ${param.name}"
+                                        "function name : ${param.name}"
                                     )
                                 }
                                 else -> {
@@ -106,14 +103,14 @@ class ViewModelMethodParameterIsCallbackDetector : Detector(), SourceCodeScanner
                                 reportIssue(
                                     node,
                                     method,
-                                    "method return type is Function"
+                                    "method returns type is Function"
                                 )
                             }
                             method.returnType?.toString()?.contains("callback", true) == true -> {
                                 reportIssue(
                                     node,
                                     method,
-                                    "method return type is potentially callback"
+                                    "method returns type is potentially callback"
                                 )
                             }
                         }

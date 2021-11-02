@@ -18,10 +18,6 @@ import java.util.EnumSet
 
 class ViewModelExposedTypeIsNotLiveDataDetector : Detector(), SourceCodeScanner {
 
-    ///////////////////////////////////////////////////////////////////////////
-    // CONST
-    ///////////////////////////////////////////////////////////////////////////
-
     companion object {
         val ISSUE = Issue.create(
             "ViewModelMethodDoesntReturnLiveData",

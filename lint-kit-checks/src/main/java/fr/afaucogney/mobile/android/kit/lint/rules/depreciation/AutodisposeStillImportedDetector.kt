@@ -23,8 +23,7 @@ class AutodisposeStillImportedDetector : Detector(), Detector.UastScanner {
         val ISSUE = Issue.create(
             "AutodisposeIsDeprecated",
             "Autodispose must not be used anymore.",
-            "Because bindAndSub rx helpers is sufficient and simpler" +
-                    "method",
+            "Because bindAndSub rx helpers is sufficient and simplest method",
             Category.CORRECTNESS,
             9,
             Severity.ERROR,
