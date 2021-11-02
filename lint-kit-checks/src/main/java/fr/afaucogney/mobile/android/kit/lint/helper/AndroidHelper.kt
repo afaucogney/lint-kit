@@ -3,7 +3,7 @@ package fr.afaucogney.mobile.android.kit.lint.helper
 import org.jetbrains.uast.UClass
 
 fun UClass.isActivityBasedClass(): Boolean {
-    var target = this
+    var target = this.javaPsi
     do {
         if (target.name.equals("Activity") || target.name.equals("AppCompatActivity")) {
             return true
@@ -17,7 +17,7 @@ fun UClass.isActivityBasedClass(): Boolean {
 }
 
 fun UClass.isFragmentBasedClass(): Boolean {
-    var target = this
+    var target = this.javaPsi
     do {
         if (target.name.equals("Fragment")) {
             return true
