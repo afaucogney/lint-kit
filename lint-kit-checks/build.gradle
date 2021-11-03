@@ -20,11 +20,15 @@ dependencies {
     compileOnly "com.android.tools.lint:lint-checks:$lintVersion"
     compileOnly "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
 
+    // Fix Kotlin dep versions
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+
     // Test
     testImplementation "com.android.tools:testutils:$lintVersion"
     testImplementation "com.android.tools.lint:lint-tests:$lintVersion"
     testImplementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
-    testImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     testImplementation "com.android.tools.lint:lint-api:$lintVersion"
     testImplementation "com.android.tools.lint:lint-checks:$lintVersion"
 
