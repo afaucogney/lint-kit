@@ -1,9 +1,12 @@
 plugins {
-    id 'com.android.library'
-    //id 'java-library'
-    id 'kotlin-android' // version $kotlinVersion
-    id 'maven-publish'
+//    id 'com.android.library'
+  //  id 'java-library'
+//    id 'kotlin-android' // version $kotlinVersion
+//    id 'maven-publish'
     //id 'com.android.lint'
+    id "com.android.library"
+    id "kotlin-android"
+    id 'maven-publish'
 }
 
 android {
@@ -20,15 +23,6 @@ android {
     }
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
-}
-
-repositories {
-    mavenCentral()
-    google()
-}
 //7.02
 dependencies {
     // Lint
