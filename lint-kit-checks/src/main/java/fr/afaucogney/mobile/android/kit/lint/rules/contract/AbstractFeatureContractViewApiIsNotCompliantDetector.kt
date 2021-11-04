@@ -37,7 +37,7 @@ abstract class AbstractFeatureContractViewApiIsNotCompliantDetector :
                 "$className Contract should only expose compliant method names : " +
                         "${compliantMethods.joinToString(", ")} in its Api.",
                 Category.COMPLIANCE,
-                5,
+                6,
                 Severity.ERROR,
                 Implementation(
                     clazz,

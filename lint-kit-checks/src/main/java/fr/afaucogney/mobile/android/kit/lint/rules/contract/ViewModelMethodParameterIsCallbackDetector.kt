@@ -26,7 +26,7 @@ class ViewModelMethodParameterIsCallbackDetector : Detector(), SourceCodeScanner
             "Contract should not expose other types than LiveData to prevent memory leaks between ViewModel" +
                     " and ViewModel owners/users",
             Category.COMPLIANCE,
-            8,
+            9,
             Severity.ERROR,
             Implementation(
                 ViewModelMethodParameterIsCallbackDetector::class.java,

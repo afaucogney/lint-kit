@@ -27,7 +27,7 @@ class ViewModelContractExposeMutableLiveDataDetector : Detector(), SourceCodeSca
             "Feature ViewModel Contract Interface should only expose LiveData.",
             "Contract should not expose MutableLiveData but only LiveData",
             Category.COMPLIANCE,
-            8,
+            9,
             Severity.ERROR,
             Implementation(
                 ViewModelContractExposeMutableLiveDataDetector::class.java,

@@ -25,7 +25,7 @@ class AutodisposeStillImportedDetector : Detector(), Detector.UastScanner {
             "Autodispose must not be used anymore.",
             "Because bindAndSub rx helpers is sufficient and simplest method",
             Category.CORRECTNESS,
-            9,
+            10,
             Severity.ERROR,
             Implementation(
                 AutodisposeStillImportedDetector::class.java,
