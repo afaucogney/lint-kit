@@ -5,6 +5,7 @@ package fr.afaucogney.mobile.android.kit.lint
 import com.android.tools.lint.client.api.IssueRegistry
 import com.android.tools.lint.detector.api.CURRENT_API
 import com.android.tools.lint.detector.api.Issue
+import fr.afaucogney.mobile.android.kit.lint.rules.common.WellSeparatorDetector
 import fr.afaucogney.mobile.android.kit.lint.rules.contract.*
 import fr.afaucogney.mobile.android.kit.lint.rules.depreciation.AutodisposeStillImportedDetector
 import fr.afaucogney.mobile.android.kit.lint.rules.xml.WrongViewIdNameDetector
@@ -42,6 +43,9 @@ class IssueRegistry : IssueRegistry() {
             WrongViewEventApiINamingDetector.ISSUE,
             WrongViewTagApiNamingDetector.ISSUE,
             NotEnoughtFeatureContractInterfaceSegregationDetector.ISSUE,
+
+            // Common
+            WellSeparatorDetector.ISSUE,
 
             // Architecture
 
