@@ -1,38 +1,37 @@
 plugins {
     id 'java-library'
-    id 'kotlin' // version $kotlinVersion
-    //id 'com.android.lint'
+    id 'kotlin'
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 repositories {
     mavenCentral()
     google()
 }
-//7.02
+
 dependencies {
-    // Lint
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    compileOnly "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
     compileOnly "com.android.tools.lint:lint-api:$lintVersion"
     compileOnly "com.android.tools.lint:lint-checks:$lintVersion"
-    compileOnly "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
 
-    // Fix Kotlin dep versions
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
-
-    // Test
-    testImplementation "com.android.tools:testutils:$lintVersion"
+    testImplementation "com.android.tools.lint:lint:$lintVersion"
     testImplementation "com.android.tools.lint:lint-tests:$lintVersion"
+    testImplementation "junit:junit:4.13.2"
     testImplementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
-    testImplementation "com.android.tools.lint:lint-api:$lintVersion"
-    testImplementation "com.android.tools.lint:lint-checks:$lintVersion"
 
     // External lint libraries
-    compileOnly 'com.vanniktech:lint-rules-android-lint:0.17.0'
-    compileOnly 'com.vanniktech:lint-rules-rxjava2-lint:0.17.0'
+    //compileOnly 'com.vanniktech:lint-rules-android-lint:0.17.0'
+    //compileOnly 'com.vanniktech:lint-rules-rxjava2-lint:0.17.0'
+}
+
+jar {
+    manifest {
+        attributes('Lint-Registry-v2': 'fr.afaucogney.mobile.android.kit.lint.IssueRegistry')
+    }
 }
