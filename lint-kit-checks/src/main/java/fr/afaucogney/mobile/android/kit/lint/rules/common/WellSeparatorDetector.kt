@@ -14,10 +14,6 @@ import java.util.EnumSet
 
 class WellSeparatorDetector : Detector(), Detector.UastScanner {
 
-    ///////////////////////////////////////////////////////////////////////////
-    // CONST
-    ///////////////////////////////////////////////////////////////////////////
-
     companion object {
         private const val SBC_LINE =
             "///////////////////////////////////////////////////////////////////////////"
@@ -51,7 +47,7 @@ class WellSeparatorDetector : Detector(), Detector.UastScanner {
             "SBC name must be contain in $SBC_AUTHORIZED.",
             "Because there are too many SBCs that contain the same thing with different names.",
             Category.CORRECTNESS,
-            9,
+            4,
             Severity.ERROR,
             Implementation(
                 WellSeparatorDetector::class.java,
