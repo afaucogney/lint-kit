@@ -5,9 +5,6 @@ package fr.afaucogney.mobile.android.kit.lint
 import com.android.tools.lint.client.api.IssueRegistry
 import com.android.tools.lint.detector.api.CURRENT_API
 import com.android.tools.lint.detector.api.Issue
-import com.vanniktech.lintrules.android.*
-import com.vanniktech.lintrules.rxjava2.ISSUE_DEFAULT_SCHEDULER
-import com.vanniktech.lintrules.rxjava2.ISSUE_METHOD_MISSING_CHECK_RETURN_VALUE
 import fr.afaucogney.mobile.android.kit.lint.rules.common.WellSeparatorDetector
 import fr.afaucogney.mobile.android.kit.lint.rules.contract.*
 import fr.afaucogney.mobile.android.kit.lint.rules.depreciation.AutodisposeStillImportedDetector
@@ -55,7 +52,7 @@ class IssueRegistry : IssueRegistry() {
             // Android-Lint
 
             // Resources
-            ISSUE_RAW_COLOR,
+            /*ISSUE_RAW_COLOR,
             ISSUE_RAW_DIMEN,
             ISSUE_COLOR_CASING,
             ISSUE_INVALID_STRING,
@@ -98,6 +95,6 @@ class IssueRegistry : IssueRegistry() {
 
             // RxJava Vannitech
             ISSUE_METHOD_MISSING_CHECK_RETURN_VALUE,
-            ISSUE_DEFAULT_SCHEDULER,
+            ISSUE_DEFAULT_SCHEDULER,*/
         )
 }
