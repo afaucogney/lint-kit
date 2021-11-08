@@ -24,10 +24,6 @@ dependencies {
     testImplementation "com.android.tools.lint:lint-tests:$lintVersion"
     testImplementation "junit:junit:4.13.2"
     testImplementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
-
-    // External lint libraries
-    compileOnly 'com.vanniktech:lint-rules-android-lint:0.17.0'
-    compileOnly 'com.vanniktech:lint-rules-rxjava2-lint:0.17.0'
 }
 
 jar {
