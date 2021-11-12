@@ -30,7 +30,7 @@ class WrongViewEventApiINamingDetector :
 
     override val issueId = WrongViewEventApiINamingDetector.issueId
     override val className = WrongViewEventApiINamingDetector.className
-    override val compliantMethods = WrongViewEventApiINamingDetector.compliantMethodPrefixes
+    override val compliantMethods = compliantMethodPrefixes
     override val issue: Issue = ISSUE
 
     override fun UClass.selectClasses(): UClass? {

@@ -33,7 +33,7 @@ class WrongViewModelApiNamingDetector :
 
     override val issueId = WrongViewModelApiNamingDetector.issueId
     override val className = WrongViewModelApiNamingDetector.className
-    override val compliantMethods = WrongViewModelApiNamingDetector.compliantMethodPrefixes
+    override val compliantMethods = compliantMethodPrefixes
     override val issue: Issue = ISSUE
 
     override fun UClass.selectClasses(): UClass? {

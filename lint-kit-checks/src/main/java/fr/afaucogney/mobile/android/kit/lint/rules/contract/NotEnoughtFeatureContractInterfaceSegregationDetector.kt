@@ -24,7 +24,7 @@ class NotEnoughtFeatureContractInterfaceSegregationDetector : Detector(), Source
     companion object {
         val ISSUE = Issue.create(
             "FeatureContractInterfaceSegregation",
-            "Feature Contract Interface should be refined enougth",
+            "Feature Contract Interface should be refined enough",
             "Interface should be refined with ViewCapabilities, ViewModel, ViewNavigation, ViewTag",
             Category.COMPLIANCE,
             5,

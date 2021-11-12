@@ -19,10 +19,6 @@ import java.util.EnumSet
 
 class ViewModelMethodParameterIsCallbackDetector : Detector(), SourceCodeScanner {
 
-    ///////////////////////////////////////////////////////////////////////////
-    // CONST
-    ///////////////////////////////////////////////////////////////////////////
-
     companion object {
         val ISSUE = Issue.create(
             "ViewModelMethodParameterIsCallback",
@@ -30,7 +26,7 @@ class ViewModelMethodParameterIsCallbackDetector : Detector(), SourceCodeScanner
             "Contract should not expose other types than LiveData to prevent memory leaks between ViewModel" +
                     " and ViewModel owners/users",
             Category.COMPLIANCE,
-            8,
+            9,
             Severity.ERROR,
             Implementation(
                 ViewModelMethodParameterIsCallbackDetector::class.java,
@@ -66,11 +62,11 @@ class ViewModelMethodParameterIsCallbackDetector : Detector(), SourceCodeScanner
                         method.parameters.forEach { param ->
                             when {
                                 // KO if param name contains callback
-                                param.name?.contains("callback", true) == true -> {
+                                param.name?.toString()?.contains("callback", true) ?: false -> {
                                     reportIssue(
                                         node,
                                         method,
-                                        "callback type : ${param.type}"
+                                        "callback type : ${param.name}"
                                     )
                                 }
                                 // KO if param type name contains callback
@@ -81,19 +77,20 @@ class ViewModelMethodParameterIsCallbackDetector : Detector(), SourceCodeScanner
                                         "callback type : ${param.type}"
                                     )
                                 }
-                                // KO if Lambda
+                                // KO if param type contains Lambda
                                 param.type.toString().contains("function", true) -> {
                                     reportIssue(
                                         node,
                                         method,
-                                        "function type : ${param.name}"
+                                        "function type : ${param.type}"
                                     )
                                 }
-                                param.type.toString().contains("function", true) -> {
+                                // KO if param name contains Lambda
+                                param.name?.toString()?.contains("function", true) ?: false -> {
                                     reportIssue(
                                         node,
                                         method,
-                                        "function type : ${param.name}"
+                                        "function name : ${param.name}"
                                     )
                                 }
                                 else -> {
@@ -106,14 +103,14 @@ class ViewModelMethodParameterIsCallbackDetector : Detector(), SourceCodeScanner
                                 reportIssue(
                                     node,
                                     method,
-                                    "method return type is Function"
+                                    "method returns type is Function"
                                 )
                             }
                             method.returnType?.toString()?.contains("callback", true) == true -> {
                                 reportIssue(
                                     node,
                                     method,
-                                    "method return type is potentially callback"
+                                    "method returns type is potentially callback"
                                 )
                             }
                         }

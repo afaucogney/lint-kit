@@ -23,7 +23,7 @@ class WrongFeatureContractNamingDetector : Detector(), Detector.UastScanner {
     companion object {
         val ISSUE = Issue.create(
             "FeatureContractNaming",
-            "Feature Contract Interface should be well named.",
+            "Feature Contract Interface should be aptly named.",
             "Contract Interface interface name should start by I and finish with Contract",
             Category.COMPLIANCE,
             5,

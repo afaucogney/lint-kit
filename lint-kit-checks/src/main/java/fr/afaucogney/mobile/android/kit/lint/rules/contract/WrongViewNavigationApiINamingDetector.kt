@@ -15,6 +15,8 @@ class WrongViewNavigationApiINamingDetector :
         private val compliantMethodPrefixes = listOf(
             "goTo",
             "quit",
+            "show",
+            "dismiss"
         )
 
         val ISSUE = buildIssue(
@@ -31,7 +33,7 @@ class WrongViewNavigationApiINamingDetector :
 
     override val issueId = WrongViewNavigationApiINamingDetector.issueId
     override val className = WrongViewNavigationApiINamingDetector.className
-    override val compliantMethods = WrongViewNavigationApiINamingDetector.compliantMethodPrefixes
+    override val compliantMethods = compliantMethodPrefixes
     override val issue: Issue = ISSUE
 
     override fun UClass.selectClasses(): UClass? {

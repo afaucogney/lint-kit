@@ -31,7 +31,7 @@ class WrongViewIdNameDetector : LayoutDetector() {
             briefDescription = ISSUE_DESCRIPTION,
             explanation = ISSUE_EXPLANATION,
             category = Category.COMPLIANCE,
-            priority = 8,
+            priority = 6,
             severity = Severity.ERROR,
             androidSpecific = true,
             implementation = Implementation(
